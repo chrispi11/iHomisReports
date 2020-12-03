@@ -37,6 +37,7 @@ Partial Class Form1
         Me.CSRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pnlBody = New System.Windows.Forms.Panel()
         Me.lblVersion = New System.Windows.Forms.Label()
+        Me.lblComputerName = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -53,6 +54,7 @@ Partial Class Form1
         'CashierToolStripMenuItem
         '
         Me.CashierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ORDetailsToolStripMenuItem})
+        Me.CashierToolStripMenuItem.Enabled = False
         Me.CashierToolStripMenuItem.Name = "CashierToolStripMenuItem"
         Me.CashierToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
         Me.CashierToolStripMenuItem.Text = "CTO Receipts"
@@ -66,6 +68,7 @@ Partial Class Form1
         'ChargesToolStripMenuItem
         '
         Me.ChargesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.COAFormatToolStripMenuItem})
+        Me.ChargesToolStripMenuItem.Enabled = False
         Me.ChargesToolStripMenuItem.Name = "ChargesToolStripMenuItem"
         Me.ChargesToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.ChargesToolStripMenuItem.Text = "Charges"
@@ -74,24 +77,25 @@ Partial Class Form1
         '
         Me.COAFormatToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PharmacyToolStripMenuItem1, Me.CSRToolStripMenuItem1})
         Me.COAFormatToolStripMenuItem.Name = "COAFormatToolStripMenuItem"
-        Me.COAFormatToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.COAFormatToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.COAFormatToolStripMenuItem.Text = "COA Format"
         '
         'PharmacyToolStripMenuItem1
         '
         Me.PharmacyToolStripMenuItem1.Name = "PharmacyToolStripMenuItem1"
-        Me.PharmacyToolStripMenuItem1.Size = New System.Drawing.Size(127, 22)
+        Me.PharmacyToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.PharmacyToolStripMenuItem1.Text = "Pharmacy"
         '
         'CSRToolStripMenuItem1
         '
         Me.CSRToolStripMenuItem1.Name = "CSRToolStripMenuItem1"
-        Me.CSRToolStripMenuItem1.Size = New System.Drawing.Size(127, 22)
+        Me.CSRToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.CSRToolStripMenuItem1.Text = "CSR"
         '
         'MaintenanceToolStripMenuItem
         '
         Me.MaintenanceToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsignmentSetupToolStripMenuItem, Me.ChargesToolStripMenuItem1})
+        Me.MaintenanceToolStripMenuItem.Enabled = False
         Me.MaintenanceToolStripMenuItem.Name = "MaintenanceToolStripMenuItem"
         Me.MaintenanceToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
         Me.MaintenanceToolStripMenuItem.Text = "Maintenance"
@@ -143,6 +147,18 @@ Partial Class Form1
         Me.lblVersion.TabIndex = 2
         Me.lblVersion.Text = "Label1"
         '
+        'lblComputerName
+        '
+        Me.lblComputerName.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblComputerName.AutoSize = True
+        Me.lblComputerName.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblComputerName.Location = New System.Drawing.Point(439, 741)
+        Me.lblComputerName.Name = "lblComputerName"
+        Me.lblComputerName.Size = New System.Drawing.Size(39, 13)
+        Me.lblComputerName.TabIndex = 3
+        Me.lblComputerName.Text = "Label1"
+        Me.lblComputerName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -151,6 +167,7 @@ Partial Class Form1
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1350, 754)
+        Me.Controls.Add(Me.lblComputerName)
         Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.pnlBody)
         Me.Controls.Add(Me.MenuStrip1)
@@ -180,4 +197,5 @@ Partial Class Form1
     Friend WithEvents ChargesToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PharmacyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CSRToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents lblComputerName As System.Windows.Forms.Label
 End Class

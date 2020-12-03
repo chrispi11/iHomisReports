@@ -10,10 +10,6 @@ Public Class Form1
         callforms(frmExtractORSummary, pnlBody)
     End Sub
 
-    Private Sub ChargesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChargesToolStripMenuItem.Click
-
-    End Sub
-
     Private Sub PharmacyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         callforms(frmExtractPharmacyCharges, pnlBody)
     End Sub
@@ -36,6 +32,8 @@ Public Class Form1
         Else
             lblVersion.Text = "v" & Application.ProductVersion & "  (c) Joenor Pineda 2020"
         End If
+        lblComputerName.Text = "Device: " & System.Net.Dns.GetHostName
+        MenuRights()
         Me.Location = New Point(0, 0)
         Me.Size = Screen.PrimaryScreen.WorkingArea.Size
     End Sub
@@ -50,5 +48,22 @@ Public Class Form1
         CostCenter = 2
         callforms(frmCOACode, pnlBody)
         frmCOACode.frmCOA_Load(e, e)
+    End Sub
+
+    Private Sub MenuRights()
+
+        If lblComputerName.Text.Contains("ACCOUNTING") Then
+            CashierToolStripMenuItem.Enabled = True
+            MaintenanceToolStripMenuItem.Enabled = True
+        ElseIf lblComputerName.Text.Contains("PHARMACY") Or lblComputerName.Text.Contains("CONS") Or lblComputerName.Text.Contains("CSR") Then
+            ChargesToolStripMenuItem.Enabled = True
+        ElseIf lblComputerName.Text.Contains("SUPPLY") Then
+            ChargesToolStripMenuItem.Enabled = True
+            MaintenanceToolStripMenuItem.Enabled = True
+        ElseIf lblComputerName.Text.Contains("ICT") Then
+            CashierToolStripMenuItem.Enabled = True
+            ChargesToolStripMenuItem.Enabled = True
+            MaintenanceToolStripMenuItem.Enabled = True
+        End If
     End Sub
 End Class

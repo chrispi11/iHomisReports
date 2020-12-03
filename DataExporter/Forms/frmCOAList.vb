@@ -40,6 +40,7 @@ Public Class frmCOACode
 
     Private Sub txtSearch_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtSearch.TextChanged
         SearchCoaCode()
+        DisplayRowToTextbox(dgv_COACode.SelectedRows(0))
     End Sub
 
     Private Sub dgv_COACode_CellClick(ByVal sender As System.Object,

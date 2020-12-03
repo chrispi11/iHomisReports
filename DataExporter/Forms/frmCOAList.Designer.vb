@@ -22,6 +22,8 @@ Partial Class frmCOACode
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCOACode))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtDescription = New System.Windows.Forms.TextBox()
@@ -143,13 +145,29 @@ Partial Class frmCOACode
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgv_COACode.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgv_COACode.BackgroundColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_COACode.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_COACode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_COACode.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.COA_CODE, Me.ITEM_DESC, Me.UNIT, Me.ITEM_CODE})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_COACode.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_COACode.Location = New System.Drawing.Point(111, 106)
         Me.dgv_COACode.Name = "dgv_COACode"
         Me.dgv_COACode.ReadOnly = True
         Me.dgv_COACode.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv_COACode.Size = New System.Drawing.Size(1009, 514)
+        Me.dgv_COACode.Size = New System.Drawing.Size(1009, 498)
         Me.dgv_COACode.TabIndex = 1
         '
         'COA_CODE
@@ -157,14 +175,14 @@ Partial Class frmCOACode
         Me.COA_CODE.HeaderText = "COA ITEM CODE"
         Me.COA_CODE.Name = "COA_CODE"
         Me.COA_CODE.ReadOnly = True
-        Me.COA_CODE.Width = 116
+        Me.COA_CODE.Width = 106
         '
         'ITEM_DESC
         '
         Me.ITEM_DESC.HeaderText = "ITEM DESCRIPTION"
         Me.ITEM_DESC.Name = "ITEM_DESC"
         Me.ITEM_DESC.ReadOnly = True
-        Me.ITEM_DESC.Width = 134
+        Me.ITEM_DESC.Width = 123
         '
         'UNIT
         '
@@ -179,7 +197,7 @@ Partial Class frmCOACode
         Me.ITEM_CODE.MinimumWidth = 2
         Me.ITEM_CODE.Name = "ITEM_CODE"
         Me.ITEM_CODE.ReadOnly = True
-        Me.ITEM_CODE.Width = 91
+        Me.ITEM_CODE.Width = 84
         '
         'Panel1
         '
@@ -268,7 +286,7 @@ Partial Class frmCOACode
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
-        Me.ClientSize = New System.Drawing.Size(1132, 623)
+        Me.ClientSize = New System.Drawing.Size(1132, 616)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dgv_COACode)
