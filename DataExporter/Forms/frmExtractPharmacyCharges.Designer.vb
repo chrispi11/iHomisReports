@@ -22,8 +22,27 @@ Partial Class frmExtractPharmacyCharges
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnShow = New System.Windows.Forms.Button()
         Me.dgvPharma_Charges = New System.Windows.Forms.DataGridView()
+        Me.ISSUE_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CHARGE_SLIP = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HOSPITAL_NO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PATIENT_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ITEM_CODE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.COA_CODE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ITEM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.STRENGTH = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.QTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UNIT_COST = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TOTAL_UNIT_COST = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SELLING_PRICE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TOTAL_SELLING_PRICE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ISSUED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RETURNED_ITEMS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pbProgress = New System.Windows.Forms.ProgressBar()
         Me.btnExtract = New System.Windows.Forms.Button()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
@@ -41,24 +60,9 @@ Partial Class frmExtractPharmacyCharges
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.chkCons = New System.Windows.Forms.CheckBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.chkReturns = New System.Windows.Forms.CheckBox()
         Me.chkEP = New System.Windows.Forms.CheckBox()
         Me.chkCovid = New System.Windows.Forms.CheckBox()
-        Me.ISSUE_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CHARGE_SLIP = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HOSPITAL_NO = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PATIENT_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ITEM_CODE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.COA_CODE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ITEM = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.STRENGTH = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UNIT_COST = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TOTAL_UNIT_COST = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SELLING_PRICE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TOTAL_SELLING_PRICE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ISSUED_BY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RETURNED_ITEMS = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.chkReturns = New System.Windows.Forms.CheckBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Charges = New System.Windows.Forms.TabPage()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -97,14 +101,141 @@ Partial Class frmExtractPharmacyCharges
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvPharma_Charges.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvPharma_Charges.BackgroundColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvPharma_Charges.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvPharma_Charges.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvPharma_Charges.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ISSUE_DATE, Me.CHARGE_SLIP, Me.HOSPITAL_NO, Me.PATIENT_NAME, Me.ITEM_CODE, Me.COA_CODE, Me.ITEM, Me.STRENGTH, Me.QTY, Me.UNIT_COST, Me.TOTAL_UNIT_COST, Me.SELLING_PRICE, Me.TOTAL_SELLING_PRICE, Me.ISSUED_BY, Me.RETURNED_ITEMS})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvPharma_Charges.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvPharma_Charges.Location = New System.Drawing.Point(3, 3)
+        Me.dgvPharma_Charges.MultiSelect = False
         Me.dgvPharma_Charges.Name = "dgvPharma_Charges"
         Me.dgvPharma_Charges.ReadOnly = True
         Me.dgvPharma_Charges.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvPharma_Charges.Size = New System.Drawing.Size(1299, 621)
         Me.dgvPharma_Charges.TabIndex = 6
+        '
+        'ISSUE_DATE
+        '
+        Me.ISSUE_DATE.HeaderText = "ISSUED DATE"
+        Me.ISSUE_DATE.MinimumWidth = 2
+        Me.ISSUE_DATE.Name = "ISSUE_DATE"
+        Me.ISSUE_DATE.ReadOnly = True
+        Me.ISSUE_DATE.Width = 96
+        '
+        'CHARGE_SLIP
+        '
+        Me.CHARGE_SLIP.HeaderText = "CHARGE SLIP NO"
+        Me.CHARGE_SLIP.Name = "CHARGE_SLIP"
+        Me.CHARGE_SLIP.ReadOnly = True
+        Me.CHARGE_SLIP.Width = 97
+        '
+        'HOSPITAL_NO
+        '
+        Me.HOSPITAL_NO.HeaderText = "HOSPITAL NO"
+        Me.HOSPITAL_NO.Name = "HOSPITAL_NO"
+        Me.HOSPITAL_NO.ReadOnly = True
+        Me.HOSPITAL_NO.Width = 96
+        '
+        'PATIENT_NAME
+        '
+        Me.PATIENT_NAME.HeaderText = "PATIENT NAME"
+        Me.PATIENT_NAME.Name = "PATIENT_NAME"
+        Me.PATIENT_NAME.ReadOnly = True
+        Me.PATIENT_NAME.Width = 103
+        '
+        'ITEM_CODE
+        '
+        Me.ITEM_CODE.HeaderText = "ITEM_CODE"
+        Me.ITEM_CODE.Name = "ITEM_CODE"
+        Me.ITEM_CODE.ReadOnly = True
+        Me.ITEM_CODE.Width = 94
+        '
+        'COA_CODE
+        '
+        Me.COA_CODE.HeaderText = "COA_CODE"
+        Me.COA_CODE.Name = "COA_CODE"
+        Me.COA_CODE.ReadOnly = True
+        Me.COA_CODE.Width = 90
+        '
+        'ITEM
+        '
+        Me.ITEM.HeaderText = "ITEM"
+        Me.ITEM.Name = "ITEM"
+        Me.ITEM.ReadOnly = True
+        Me.ITEM.Width = 58
+        '
+        'STRENGTH
+        '
+        Me.STRENGTH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.STRENGTH.HeaderText = "STRENGTH"
+        Me.STRENGTH.Name = "STRENGTH"
+        Me.STRENGTH.ReadOnly = True
+        Me.STRENGTH.Width = 92
+        '
+        'QTY
+        '
+        Me.QTY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.QTY.HeaderText = "QTY"
+        Me.QTY.Name = "QTY"
+        Me.QTY.ReadOnly = True
+        Me.QTY.Width = 54
+        '
+        'UNIT_COST
+        '
+        Me.UNIT_COST.HeaderText = "UNIT COST"
+        Me.UNIT_COST.Name = "UNIT_COST"
+        Me.UNIT_COST.ReadOnly = True
+        Me.UNIT_COST.Width = 83
+        '
+        'TOTAL_UNIT_COST
+        '
+        Me.TOTAL_UNIT_COST.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.TOTAL_UNIT_COST.HeaderText = "TOTAL UNIT COST"
+        Me.TOTAL_UNIT_COST.Name = "TOTAL_UNIT_COST"
+        Me.TOTAL_UNIT_COST.ReadOnly = True
+        Me.TOTAL_UNIT_COST.Width = 91
+        '
+        'SELLING_PRICE
+        '
+        Me.SELLING_PRICE.HeaderText = "SELLING_PRICE"
+        Me.SELLING_PRICE.Name = "SELLING_PRICE"
+        Me.SELLING_PRICE.ReadOnly = True
+        Me.SELLING_PRICE.Width = 115
+        '
+        'TOTAL_SELLING_PRICE
+        '
+        Me.TOTAL_SELLING_PRICE.HeaderText = "TOTAL SELLING PRICE"
+        Me.TOTAL_SELLING_PRICE.Name = "TOTAL_SELLING_PRICE"
+        Me.TOTAL_SELLING_PRICE.ReadOnly = True
+        Me.TOTAL_SELLING_PRICE.Width = 137
+        '
+        'ISSUED_BY
+        '
+        Me.ISSUED_BY.HeaderText = "ISSUED BY"
+        Me.ISSUED_BY.Name = "ISSUED_BY"
+        Me.ISSUED_BY.ReadOnly = True
+        Me.ISSUED_BY.Width = 82
+        '
+        'RETURNED_ITEMS
+        '
+        Me.RETURNED_ITEMS.HeaderText = "RETURNED QTY"
+        Me.RETURNED_ITEMS.Name = "RETURNED_ITEMS"
+        Me.RETURNED_ITEMS.ReadOnly = True
+        Me.RETURNED_ITEMS.Visible = False
+        Me.RETURNED_ITEMS.Width = 108
         '
         'pbProgress
         '
@@ -279,6 +410,16 @@ Partial Class frmExtractPharmacyCharges
         Me.GroupBox6.TabIndex = 58
         Me.GroupBox6.TabStop = False
         '
+        'chkReturns
+        '
+        Me.chkReturns.AutoSize = True
+        Me.chkReturns.Location = New System.Drawing.Point(13, 67)
+        Me.chkReturns.Name = "chkReturns"
+        Me.chkReturns.Size = New System.Drawing.Size(104, 17)
+        Me.chkReturns.TabIndex = 7
+        Me.chkReturns.Text = "Exclude Returns"
+        Me.chkReturns.UseVisualStyleBackColor = True
+        '
         'chkEP
         '
         Me.chkEP.AutoSize = True
@@ -298,126 +439,6 @@ Partial Class frmExtractPharmacyCharges
         Me.chkCovid.TabIndex = 8
         Me.chkCovid.Text = "Exclude COVID-19"
         Me.chkCovid.UseVisualStyleBackColor = True
-        '
-        'ISSUE_DATE
-        '
-        Me.ISSUE_DATE.HeaderText = "ISSUED DATE"
-        Me.ISSUE_DATE.MinimumWidth = 2
-        Me.ISSUE_DATE.Name = "ISSUE_DATE"
-        Me.ISSUE_DATE.ReadOnly = True
-        Me.ISSUE_DATE.Width = 96
-        '
-        'CHARGE_SLIP
-        '
-        Me.CHARGE_SLIP.HeaderText = "CHARGE SLIP NO"
-        Me.CHARGE_SLIP.Name = "CHARGE_SLIP"
-        Me.CHARGE_SLIP.ReadOnly = True
-        Me.CHARGE_SLIP.Width = 97
-        '
-        'HOSPITAL_NO
-        '
-        Me.HOSPITAL_NO.HeaderText = "HOSPITAL NO"
-        Me.HOSPITAL_NO.Name = "HOSPITAL_NO"
-        Me.HOSPITAL_NO.ReadOnly = True
-        Me.HOSPITAL_NO.Width = 96
-        '
-        'PATIENT_NAME
-        '
-        Me.PATIENT_NAME.HeaderText = "PATIENT NAME"
-        Me.PATIENT_NAME.Name = "PATIENT_NAME"
-        Me.PATIENT_NAME.ReadOnly = True
-        Me.PATIENT_NAME.Width = 103
-        '
-        'ITEM_CODE
-        '
-        Me.ITEM_CODE.HeaderText = "ITEM_CODE"
-        Me.ITEM_CODE.Name = "ITEM_CODE"
-        Me.ITEM_CODE.ReadOnly = True
-        Me.ITEM_CODE.Width = 94
-        '
-        'COA_CODE
-        '
-        Me.COA_CODE.HeaderText = "COA_CODE"
-        Me.COA_CODE.Name = "COA_CODE"
-        Me.COA_CODE.ReadOnly = True
-        Me.COA_CODE.Width = 90
-        '
-        'ITEM
-        '
-        Me.ITEM.HeaderText = "ITEM"
-        Me.ITEM.Name = "ITEM"
-        Me.ITEM.ReadOnly = True
-        Me.ITEM.Width = 58
-        '
-        'STRENGTH
-        '
-        Me.STRENGTH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.STRENGTH.HeaderText = "STRENGTH"
-        Me.STRENGTH.Name = "STRENGTH"
-        Me.STRENGTH.ReadOnly = True
-        Me.STRENGTH.Width = 92
-        '
-        'QTY
-        '
-        Me.QTY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.QTY.HeaderText = "QTY"
-        Me.QTY.Name = "QTY"
-        Me.QTY.ReadOnly = True
-        Me.QTY.Width = 54
-        '
-        'UNIT_COST
-        '
-        Me.UNIT_COST.HeaderText = "UNIT COST"
-        Me.UNIT_COST.Name = "UNIT_COST"
-        Me.UNIT_COST.ReadOnly = True
-        Me.UNIT_COST.Width = 83
-        '
-        'TOTAL_UNIT_COST
-        '
-        Me.TOTAL_UNIT_COST.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.TOTAL_UNIT_COST.HeaderText = "TOTAL UNIT COST"
-        Me.TOTAL_UNIT_COST.Name = "TOTAL_UNIT_COST"
-        Me.TOTAL_UNIT_COST.ReadOnly = True
-        Me.TOTAL_UNIT_COST.Width = 91
-        '
-        'SELLING_PRICE
-        '
-        Me.SELLING_PRICE.HeaderText = "SELLING_PRICE"
-        Me.SELLING_PRICE.Name = "SELLING_PRICE"
-        Me.SELLING_PRICE.ReadOnly = True
-        Me.SELLING_PRICE.Width = 115
-        '
-        'TOTAL_SELLING_PRICE
-        '
-        Me.TOTAL_SELLING_PRICE.HeaderText = "TOTAL SELLING PRICE"
-        Me.TOTAL_SELLING_PRICE.Name = "TOTAL_SELLING_PRICE"
-        Me.TOTAL_SELLING_PRICE.ReadOnly = True
-        Me.TOTAL_SELLING_PRICE.Width = 137
-        '
-        'ISSUED_BY
-        '
-        Me.ISSUED_BY.HeaderText = "ISSUED BY"
-        Me.ISSUED_BY.Name = "ISSUED_BY"
-        Me.ISSUED_BY.ReadOnly = True
-        Me.ISSUED_BY.Width = 82
-        '
-        'RETURNED_ITEMS
-        '
-        Me.RETURNED_ITEMS.HeaderText = "RETURNED QTY"
-        Me.RETURNED_ITEMS.Name = "RETURNED_ITEMS"
-        Me.RETURNED_ITEMS.ReadOnly = True
-        Me.RETURNED_ITEMS.Visible = False
-        Me.RETURNED_ITEMS.Width = 108
-        '
-        'chkReturns
-        '
-        Me.chkReturns.AutoSize = True
-        Me.chkReturns.Location = New System.Drawing.Point(13, 67)
-        Me.chkReturns.Name = "chkReturns"
-        Me.chkReturns.Size = New System.Drawing.Size(104, 17)
-        Me.chkReturns.TabIndex = 7
-        Me.chkReturns.Text = "Exclude Returns"
-        Me.chkReturns.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
@@ -450,7 +471,7 @@ Partial Class frmExtractPharmacyCharges
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1614, 630)
+        Me.TabPage1.Size = New System.Drawing.Size(1308, 630)
         Me.TabPage1.TabIndex = 1
         Me.TabPage1.Text = "Item Summary"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -465,8 +486,24 @@ Partial Class frmExtractPharmacyCharges
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgv_ItemSummary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgv_ItemSummary.BackgroundColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ItemSummary.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_ItemSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_ItemSummary.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_ItemSummary.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_ItemSummary.Location = New System.Drawing.Point(5, 4)
         Me.dgv_ItemSummary.Name = "dgv_ItemSummary"
         Me.dgv_ItemSummary.ReadOnly = True

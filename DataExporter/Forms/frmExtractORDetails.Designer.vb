@@ -22,6 +22,8 @@ Partial Class frmExtractORDetails
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnShow = New System.Windows.Forms.Button()
         Me.dgvOR_DETAILS = New System.Windows.Forms.DataGridView()
         Me.HPN = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -48,7 +50,6 @@ Partial Class frmExtractORDetails
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.chkSum = New System.Windows.Forms.CheckBox()
         CType(Me.dgvOR_DETAILS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -74,11 +75,29 @@ Partial Class frmExtractORDetails
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvOR_DETAILS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvOR_DETAILS.BackgroundColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvOR_DETAILS.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvOR_DETAILS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvOR_DETAILS.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HPN, Me.OR_NO, Me.OR_DATE, Me.DESCRIPTION, Me.ACCT_DESC, Me.AMOUNT_PAID, Me.CONSIGNMENT, Me.HOSP_INC, Me.PAYREM, Me.PATIENT_NAME, Me.CASHIER})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvOR_DETAILS.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvOR_DETAILS.Location = New System.Drawing.Point(12, 110)
+        Me.dgvOR_DETAILS.MultiSelect = False
         Me.dgvOR_DETAILS.Name = "dgvOR_DETAILS"
         Me.dgvOR_DETAILS.ReadOnly = True
+        Me.dgvOR_DETAILS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvOR_DETAILS.Size = New System.Drawing.Size(1336, 578)
         Me.dgvOR_DETAILS.TabIndex = 1
         '
@@ -165,10 +184,12 @@ Partial Class frmExtractORDetails
         '
         'pbProgress
         '
+        Me.pbProgress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbProgress.Location = New System.Drawing.Point(12, 74)
         Me.pbProgress.Maximum = 0
         Me.pbProgress.Name = "pbProgress"
-        Me.pbProgress.Size = New System.Drawing.Size(1011, 23)
+        Me.pbProgress.Size = New System.Drawing.Size(1162, 23)
         Me.pbProgress.TabIndex = 2
         '
         'btnExtract
@@ -182,9 +203,11 @@ Partial Class frmExtractORDetails
         '
         'txtSearch
         '
+        Me.txtSearch.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSearch.Location = New System.Drawing.Point(226, 18)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(228, 20)
+        Me.txtSearch.Size = New System.Drawing.Size(379, 20)
         Me.txtSearch.TabIndex = 4
         '
         'cbFilterBy
@@ -227,7 +250,7 @@ Partial Class frmExtractORDetails
         'dpDateFrom
         '
         Me.dpDateFrom.CalendarFont = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dpDateFrom.CustomFormat = "MM/d/yyyy"
+        Me.dpDateFrom.CustomFormat = "MM/dd/yyyy"
         Me.dpDateFrom.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dpDateFrom.Location = New System.Drawing.Point(71, 19)
@@ -238,7 +261,7 @@ Partial Class frmExtractORDetails
         'dpDateTo
         '
         Me.dpDateTo.CalendarFont = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dpDateTo.CustomFormat = "MM/d/yyyy "
+        Me.dpDateTo.CustomFormat = "MM/dd/yyyy "
         Me.dpDateTo.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dpDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dpDateTo.Location = New System.Drawing.Point(329, 19)
@@ -260,37 +283,27 @@ Partial Class frmExtractORDetails
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.txtSearch)
         Me.GroupBox3.Controls.Add(Me.cbFilterBy)
         Me.GroupBox3.Controls.Add(Me.Label3)
         Me.GroupBox3.Location = New System.Drawing.Point(560, 12)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(463, 53)
+        Me.GroupBox3.Size = New System.Drawing.Size(614, 53)
         Me.GroupBox3.TabIndex = 60
         Me.GroupBox3.TabStop = False
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.btnShow)
         Me.GroupBox2.Controls.Add(Me.btnExtract)
-        Me.GroupBox2.Location = New System.Drawing.Point(1029, 11)
+        Me.GroupBox2.Location = New System.Drawing.Point(1180, 11)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(168, 93)
         Me.GroupBox2.TabIndex = 61
         Me.GroupBox2.TabStop = False
-        '
-        'chkSum
-        '
-        Me.chkSum.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkSum.AutoSize = True
-        Me.chkSum.Location = New System.Drawing.Point(1203, 28)
-        Me.chkSum.Name = "chkSum"
-        Me.chkSum.Size = New System.Drawing.Size(88, 17)
-        Me.chkSum.TabIndex = 64
-        Me.chkSum.Text = "OR Summary"
-        Me.chkSum.UseVisualStyleBackColor = True
         '
         'frmExtractORDetails
         '
@@ -298,7 +311,6 @@ Partial Class frmExtractORDetails
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1360, 700)
-        Me.Controls.Add(Me.chkSum)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
@@ -314,7 +326,6 @@ Partial Class frmExtractORDetails
         Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnShow As System.Windows.Forms.Button
@@ -343,6 +354,5 @@ Partial Class frmExtractORDetails
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents chkSum As System.Windows.Forms.CheckBox
 
 End Class

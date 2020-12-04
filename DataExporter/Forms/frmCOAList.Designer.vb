@@ -164,6 +164,7 @@ Partial Class frmCOACode
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_COACode.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_COACode.Location = New System.Drawing.Point(111, 106)
+        Me.dgv_COACode.MultiSelect = False
         Me.dgv_COACode.Name = "dgv_COACode"
         Me.dgv_COACode.ReadOnly = True
         Me.dgv_COACode.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
