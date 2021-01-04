@@ -16,6 +16,7 @@
             Dim cntr As Integer = 0
             opencon()
             Cmd.Parameters.AddWithValue("@search", txtSearch.Text + "%")
+            Cmd.Parameters.AddWithValue("@x", "x")
             Cmd.CommandText = "select * from VW_PHARMACY_CHARGES " &
                               "left join " &
                               "  COA_ITEM on" &
@@ -25,7 +26,10 @@
                               "between " &
                                 "'" & DateFrom & "'" &
                               " and " &
-                                 "'" & DateTo.AddDays(1) & "'"
+                                 "'" & DateTo.AddDays(1) & "'" &
+                              " and " &
+                                "  VW_PHARMACY_CHARGES.QTY <> 0"
+
             If chkCons.Checked = True Then
                 Cmd.CommandText = Cmd.CommandText & "and " &
                                 "  VW_PHARMACY_CHARGES.ITEM" &
@@ -49,7 +53,7 @@
 
             If chkReturns.Checked = True Then
                 Cmd.CommandText = Cmd.CommandText & "and " &
-                                "  VW_PHARMACY_CHARGES.QTY <> 0"
+                                  "  (COA_ITEM.COACODE <> @x or COA_ITEM.COACODE <> null) "
             End If
 
             If cbFilter.Text <> "" Then
@@ -140,6 +144,7 @@
             Dim cntr As Integer = 0
             opencon()
             Cmd.Parameters.AddWithValue("@search", txtSearch.Text + "%")
+            Cmd.Parameters.AddWithValue("@x", "x")
             Cmd.CommandText = "select * from VW_CSR_CHARGES " &
                               "left join " &
                               "  COA_ITEM on " &
@@ -149,7 +154,10 @@
                               "between " &
                                 "'" & DateFrom & "'" &
                               " and " &
-                                 "'" & DateTo.AddDays(1) & "'"
+                                 "'" & DateTo.AddDays(1) & "'" &
+                              " and " &
+                                "  VW_CSR_CHARGES.QTY <> 0"
+
             If chkCons.Checked = True Then
                 Cmd.CommandText = Cmd.CommandText & "and " &
                                 "  VW_CSR_CHARGES.ITEM" &
@@ -166,7 +174,7 @@
 
             If chkReturns.Checked = True Then
                 Cmd.CommandText = Cmd.CommandText & "and " &
-                                "  VW_CSR_CHARGES.QTY <> 0"
+                                "  COA_ITEM.COACODE <> @x"
             End If
 
 
@@ -256,6 +264,7 @@
             Cmd.Parameters.AddWithValue("@search", txtSearch.Text + "%")
             Cmd.CommandText = "select " &
                               "  ITEM, " &
+                              "  STRENGTH, " &
                               "  sum(QTY) as QTY " &
                               "from " &
                               "  VW_PHARMACY_CHARGES " &
@@ -295,7 +304,8 @@
 
             Cmd.CommandText = Cmd.CommandText &
                              " group by " &
-                                " ITEM"
+                                " ITEM, " &
+                                " STRENGTH "
             Dr = Cmd.ExecuteReader
 
             dgvItemSummary.Rows.Clear()
@@ -303,6 +313,7 @@
                 With dgvItemSummary
                     .Rows.Add(
                     Dr("ITEM"),
+                    Dr("STRENGTH"),
                     Dr("QTY"))
                     cntr = cntr + 1
                 End With

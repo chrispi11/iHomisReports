@@ -8,6 +8,9 @@
                          ByRef txtSearch As TextBox)
         Try
             Dim cntr As Integer = 0
+            Dim TotalAmount As Decimal = 0
+            Dim TotalConsignment As Decimal = 0
+            Dim TotalHospInc As Decimal = 0
             opencon()
             Cmd.Parameters.AddWithValue("@search", txtSearch.Text + "%")
             Cmd.CommandText = "select * from VW_ORDETAILS " & _
@@ -27,21 +30,37 @@
 
             dgvOR_Details.Rows.Clear()
             While Dr.Read
-                dgvOR_Details.Rows.Add( _
-                    Dr("HOSPITAL_NO"), _
-                    Dr("OR_NO"), _
-                    Dr("OR_DATE"), _
-                    Dr("ITEMDESC"), _
-                    Dr("ACCT_DESC"), _
-                    Dr("AMOUNT"), _
-                    Dr("CONSIGNMENT"), _
-                    Dr("HOSP_INC"), _
-                    Dr("PAYREM"), _
-                    Dr("PATIENT_NAME"), _
+                If Not IsDBNull(Dr("CONSIGNMENT")) And Not IsDBNull(Dr("HOSP_INC")) Then
+                    TotalConsignment = TotalConsignment + Decimal.Parse(Dr("CONSIGNMENT"))
+                    TotalHospInc = TotalHospInc + Decimal.Parse(Dr("HOSP_INC"))
+                End If
+                TotalAmount = TotalAmount + Decimal.Parse(Dr("AMOUNT"))
+                dgvOR_Details.Rows.Add(
+                    Dr("HOSPITAL_NO"),
+                    Dr("OR_NO"),
+                    Dr("OR_DATE"),
+                    Dr("ITEMDESC"),
+                    Dr("ACCT_DESC"),
+                    Dr("AMOUNT"),
+                    Dr("CONSIGNMENT"),
+                    Dr("HOSP_INC"),
+                    Dr("PAYREM"),
+                    Dr("PATIENT_NAME"),
                     Dr("CASHIER"))
                 cntr = cntr + 1
             End While
-
+            dgvOR_Details.Rows.Add(
+                "",
+                "",
+                "",
+                "",
+                "TOTAL",
+                TotalAmount,
+                TotalConsignment,
+                TotalHospInc,
+                "",
+                "",
+                "")
             prg.Maximum = cntr
             Cmd.Parameters.Clear()
             closecon()

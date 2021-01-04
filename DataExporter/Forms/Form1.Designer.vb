@@ -62,7 +62,7 @@ Partial Class Form1
         'ORDetailsToolStripMenuItem
         '
         Me.ORDetailsToolStripMenuItem.Name = "ORDetailsToolStripMenuItem"
-        Me.ORDetailsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ORDetailsToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.ORDetailsToolStripMenuItem.Text = "OR Details"
         '
         'ChargesToolStripMenuItem
@@ -77,19 +77,19 @@ Partial Class Form1
         '
         Me.COAFormatToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PharmacyToolStripMenuItem1, Me.CSRToolStripMenuItem1})
         Me.COAFormatToolStripMenuItem.Name = "COAFormatToolStripMenuItem"
-        Me.COAFormatToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.COAFormatToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.COAFormatToolStripMenuItem.Text = "COA Format"
         '
         'PharmacyToolStripMenuItem1
         '
         Me.PharmacyToolStripMenuItem1.Name = "PharmacyToolStripMenuItem1"
-        Me.PharmacyToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.PharmacyToolStripMenuItem1.Size = New System.Drawing.Size(127, 22)
         Me.PharmacyToolStripMenuItem1.Text = "Pharmacy"
         '
         'CSRToolStripMenuItem1
         '
         Me.CSRToolStripMenuItem1.Name = "CSRToolStripMenuItem1"
-        Me.CSRToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.CSRToolStripMenuItem1.Size = New System.Drawing.Size(127, 22)
         Me.CSRToolStripMenuItem1.Text = "CSR"
         '
         'MaintenanceToolStripMenuItem

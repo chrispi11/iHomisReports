@@ -118,7 +118,32 @@
             opencon()
             Cmd.Parameters.AddWithValue("@newcode", NewCode)
             Cmd.Parameters.AddWithValue("@itemcode", ItemCode)
-            Cmd.CommandText = "update COA_ITEM SET COACODE=@newcode WHERE ITEMCODE = @itemcode"
+            Cmd.CommandText = "update " +
+                              "  COA_ITEM " +
+                              "SET COACODE=@newcode " +
+                              "WHERE " +
+                              "  ITEMCODE = @itemcode"
+            Cmd.ExecuteNonQuery()
+
+            Cmd.Parameters.Clear()
+            closecon()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Cmd.Parameters.Clear()
+            Con.Close()
+        End Try
+    End Sub
+
+    Sub InsertCoaCode(ByVal NewCode As String,
+                      ByVal ItemCode As String)
+        Try
+            Dim cntr As Integer = 0
+            opencon()
+            Cmd.Parameters.AddWithValue("@newcode", NewCode)
+            Cmd.Parameters.AddWithValue("@itemcode", ItemCode)
+            Cmd.CommandText = "insert into " +
+                              "  COA_ITEM " +
+                              "values(@newcode, @itemcode)"
             Cmd.ExecuteNonQuery()
 
             Cmd.Parameters.Clear()

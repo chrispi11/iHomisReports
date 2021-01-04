@@ -4,8 +4,7 @@
 
 Public Class frmCOACode
     Dim clsCoa As New clsCOAItemCode
-    Public Sub frmCOA_Load(ByVal sender As System.Object,
-                           ByVal e As System.EventArgs) Handles MyBase.Load, MyBase.Shown
+    Public Sub frmCOA_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load, MyBase.Shown
         EnableButton(True, False, True, False)
         SearchCoaCode()
     End Sub
@@ -31,7 +30,7 @@ Public Class frmCOACode
         If clsCoa.COAItemHasRows(txtItemCode.Text) = True Then
             clsCoa.UpdateCoaCode(txtCoaCode.Text, txtItemCode.Text)
         Else
-            MsgBox("Not yet Added!")
+            clsCoa.InsertCoaCode(txtCoaCode.Text, txtItemCode.Text)
         End If
         'MsgBox("Are you sure you want to logout?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "LogOut Confirmation")
         MsgBox("Successfully Updated", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "")

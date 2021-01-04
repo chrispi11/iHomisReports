@@ -19,7 +19,7 @@ Public Class frmExtractPharmacyCharges
                                                    chkCons,
                                                    chkCovid,
                                                    chkEP,
-                                                   chkReturns)
+                                                   chkNoCoaCode)
 
             clsPharmaCharges.FillPharmaItemSummaryGrid(dgv_ItemSummary,
                                                        dpDateFrom.Value.Date,
@@ -53,6 +53,8 @@ Public Class frmExtractPharmacyCharges
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExtractCoa.Click
         chkCons.Checked = True
+        chkEP.Checked = True
+        chkNoCoaCode.Checked = True
         btnShow.PerformClick()
         clsDGVtoExcel.ExtractDGVtoCOAExcel(dgvPharma_Charges,
                                            pbProgress)
@@ -72,6 +74,6 @@ Public Class frmExtractPharmacyCharges
                                                chkCons,
                                                chkCovid,
                                                chkEP,
-                                               chkReturns)
+                                               chkNoCoaCode)
     End Sub
 End Class

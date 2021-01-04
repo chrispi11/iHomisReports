@@ -60,7 +60,7 @@ Partial Class frmExtractPharmacyCharges
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.chkCons = New System.Windows.Forms.CheckBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.chkReturns = New System.Windows.Forms.CheckBox()
+        Me.chkNoCoaCode = New System.Windows.Forms.CheckBox()
         Me.chkEP = New System.Windows.Forms.CheckBox()
         Me.chkCovid = New System.Windows.Forms.CheckBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -68,6 +68,7 @@ Partial Class frmExtractPharmacyCharges
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.dgv_ItemSummary = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DOSAGE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvPharma_Charges, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -390,7 +391,7 @@ Partial Class frmExtractPharmacyCharges
         'chkCons
         '
         Me.chkCons.AutoSize = True
-        Me.chkCons.Location = New System.Drawing.Point(13, 13)
+        Me.chkCons.Location = New System.Drawing.Point(10, 13)
         Me.chkCons.Name = "chkCons"
         Me.chkCons.Size = New System.Drawing.Size(128, 17)
         Me.chkCons.TabIndex = 7
@@ -400,7 +401,7 @@ Partial Class frmExtractPharmacyCharges
         'GroupBox6
         '
         Me.GroupBox6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox6.Controls.Add(Me.chkReturns)
+        Me.GroupBox6.Controls.Add(Me.chkNoCoaCode)
         Me.GroupBox6.Controls.Add(Me.chkEP)
         Me.GroupBox6.Controls.Add(Me.chkCovid)
         Me.GroupBox6.Controls.Add(Me.chkCons)
@@ -410,20 +411,20 @@ Partial Class frmExtractPharmacyCharges
         Me.GroupBox6.TabIndex = 58
         Me.GroupBox6.TabStop = False
         '
-        'chkReturns
+        'chkNoCoaCode
         '
-        Me.chkReturns.AutoSize = True
-        Me.chkReturns.Location = New System.Drawing.Point(13, 67)
-        Me.chkReturns.Name = "chkReturns"
-        Me.chkReturns.Size = New System.Drawing.Size(104, 17)
-        Me.chkReturns.TabIndex = 7
-        Me.chkReturns.Text = "Exclude Returns"
-        Me.chkReturns.UseVisualStyleBackColor = True
+        Me.chkNoCoaCode.AutoSize = True
+        Me.chkNoCoaCode.Location = New System.Drawing.Point(10, 67)
+        Me.chkNoCoaCode.Name = "chkNoCoaCode"
+        Me.chkNoCoaCode.Size = New System.Drawing.Size(134, 17)
+        Me.chkNoCoaCode.TabIndex = 7
+        Me.chkNoCoaCode.Text = "Exclude No COA Code"
+        Me.chkNoCoaCode.UseVisualStyleBackColor = True
         '
         'chkEP
         '
         Me.chkEP.AutoSize = True
-        Me.chkEP.Location = New System.Drawing.Point(13, 49)
+        Me.chkEP.Location = New System.Drawing.Point(10, 49)
         Me.chkEP.Name = "chkEP"
         Me.chkEP.Size = New System.Drawing.Size(81, 17)
         Me.chkEP.TabIndex = 9
@@ -433,7 +434,7 @@ Partial Class frmExtractPharmacyCharges
         'chkCovid
         '
         Me.chkCovid.AutoSize = True
-        Me.chkCovid.Location = New System.Drawing.Point(13, 31)
+        Me.chkCovid.Location = New System.Drawing.Point(10, 31)
         Me.chkCovid.Name = "chkCovid"
         Me.chkCovid.Size = New System.Drawing.Size(115, 17)
         Me.chkCovid.TabIndex = 8
@@ -495,7 +496,7 @@ Partial Class frmExtractPharmacyCharges
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_ItemSummary.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_ItemSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_ItemSummary.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.dgv_ItemSummary.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DOSAGE, Me.DataGridViewTextBoxColumn2})
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -508,7 +509,7 @@ Partial Class frmExtractPharmacyCharges
         Me.dgv_ItemSummary.Name = "dgv_ItemSummary"
         Me.dgv_ItemSummary.ReadOnly = True
         Me.dgv_ItemSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv_ItemSummary.Size = New System.Drawing.Size(1605, 621)
+        Me.dgv_ItemSummary.Size = New System.Drawing.Size(1297, 621)
         Me.dgv_ItemSummary.TabIndex = 7
         '
         'DataGridViewTextBoxColumn1
@@ -518,6 +519,13 @@ Partial Class frmExtractPharmacyCharges
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Width = 58
+        '
+        'DOSAGE
+        '
+        Me.DOSAGE.HeaderText = "STRENGTH"
+        Me.DOSAGE.Name = "DOSAGE"
+        Me.DOSAGE.ReadOnly = True
+        Me.DOSAGE.Width = 92
         '
         'DataGridViewTextBoxColumn2
         '
@@ -593,12 +601,13 @@ Partial Class frmExtractPharmacyCharges
     Friend WithEvents TOTAL_SELLING_PRICE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ISSUED_BY As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RETURNED_ITEMS As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents chkReturns As System.Windows.Forms.CheckBox
+    Friend WithEvents chkNoCoaCode As System.Windows.Forms.CheckBox
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents Charges As System.Windows.Forms.TabPage
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents dgv_ItemSummary As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DOSAGE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

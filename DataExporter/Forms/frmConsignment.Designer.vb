@@ -32,12 +32,18 @@ Partial Class frmConsignment
         Me.rbPercentage = New System.Windows.Forms.RadioButton()
         Me.rbAmount = New System.Windows.Forms.RadioButton()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtValue = New System.Windows.Forms.TextBox()
         Me.dpDateFrom = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.dgvOR_DETAILS = New System.Windows.Forms.DataGridView()
+        Me.dgvProc = New System.Windows.Forms.DataGridView()
+        Me.PROC_CODE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DESCRIPTION = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VALUE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VALUE_TYPE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DATE_FROM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DATE_TO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSearch = New System.Windows.Forms.Button()
@@ -48,17 +54,11 @@ Partial Class frmConsignment
         Me.btnSave = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.PROC_CODE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DESCRIPTION = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VALUE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VALUE_TYPE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DATE_FROM = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DATE_TO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.dgvOR_DETAILS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvProc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -68,6 +68,7 @@ Partial Class frmConsignment
         '
         Me.cbConsignment.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbConsignment.Enabled = False
         Me.cbConsignment.FormattingEnabled = True
         Me.cbConsignment.Location = New System.Drawing.Point(364, 18)
         Me.cbConsignment.Name = "cbConsignment"
@@ -76,6 +77,7 @@ Partial Class frmConsignment
         '
         'txtCode
         '
+        Me.txtCode.Enabled = False
         Me.txtCode.Location = New System.Drawing.Point(123, 18)
         Me.txtCode.Name = "txtCode"
         Me.txtCode.Size = New System.Drawing.Size(143, 20)
@@ -89,7 +91,7 @@ Partial Class frmConsignment
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.cbConsignment)
         Me.GroupBox1.Controls.Add(Me.txtCode)
-        Me.GroupBox1.Location = New System.Drawing.Point(107, 54)
+        Me.GroupBox1.Location = New System.Drawing.Point(107, 56)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(729, 52)
         Me.GroupBox1.TabIndex = 2
@@ -121,7 +123,7 @@ Partial Class frmConsignment
         Me.GroupBox2.Controls.Add(Me.rbPercentage)
         Me.GroupBox2.Controls.Add(Me.rbAmount)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
+        Me.GroupBox2.Controls.Add(Me.txtValue)
         Me.GroupBox2.Location = New System.Drawing.Point(333, 6)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(503, 50)
@@ -160,14 +162,15 @@ Partial Class frmConsignment
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Value :"
         '
-        'TextBox1
+        'txtValue
         '
-        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtValue.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(224, 18)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(273, 20)
-        Me.TextBox1.TabIndex = 4
+        Me.txtValue.Enabled = False
+        Me.txtValue.Location = New System.Drawing.Point(224, 18)
+        Me.txtValue.Name = "txtValue"
+        Me.txtValue.Size = New System.Drawing.Size(273, 20)
+        Me.txtValue.TabIndex = 4
         '
         'dpDateFrom
         '
@@ -204,30 +207,74 @@ Partial Class frmConsignment
         Me.GroupBox4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox4.Controls.Add(Me.dgvOR_DETAILS)
+        Me.GroupBox4.Controls.Add(Me.dgvProc)
         Me.GroupBox4.Location = New System.Drawing.Point(107, 152)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(942, 508)
         Me.GroupBox4.TabIndex = 58
         Me.GroupBox4.TabStop = False
         '
-        'dgvOR_DETAILS
+        'dgvProc
         '
-        Me.dgvOR_DETAILS.AllowUserToAddRows = False
-        Me.dgvOR_DETAILS.AllowUserToDeleteRows = False
-        Me.dgvOR_DETAILS.AllowUserToOrderColumns = True
-        Me.dgvOR_DETAILS.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dgvProc.AllowUserToAddRows = False
+        Me.dgvProc.AllowUserToDeleteRows = False
+        Me.dgvProc.AllowUserToOrderColumns = True
+        Me.dgvProc.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvOR_DETAILS.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.dgvOR_DETAILS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvOR_DETAILS.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PROC_CODE, Me.DESCRIPTION, Me.VALUE, Me.VALUE_TYPE, Me.DATE_FROM, Me.DATE_TO})
-        Me.dgvOR_DETAILS.Location = New System.Drawing.Point(6, 13)
-        Me.dgvOR_DETAILS.MultiSelect = False
-        Me.dgvOR_DETAILS.Name = "dgvOR_DETAILS"
-        Me.dgvOR_DETAILS.ReadOnly = True
-        Me.dgvOR_DETAILS.Size = New System.Drawing.Size(930, 489)
-        Me.dgvOR_DETAILS.TabIndex = 2
+        Me.dgvProc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvProc.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgvProc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvProc.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PROC_CODE, Me.DESCRIPTION, Me.VALUE, Me.VALUE_TYPE, Me.DATE_FROM, Me.DATE_TO})
+        Me.dgvProc.Location = New System.Drawing.Point(6, 13)
+        Me.dgvProc.MultiSelect = False
+        Me.dgvProc.Name = "dgvProc"
+        Me.dgvProc.ReadOnly = True
+        Me.dgvProc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvProc.Size = New System.Drawing.Size(930, 473)
+        Me.dgvProc.TabIndex = 2
+        '
+        'PROC_CODE
+        '
+        Me.PROC_CODE.HeaderText = "PROC_CODE"
+        Me.PROC_CODE.Name = "PROC_CODE"
+        Me.PROC_CODE.ReadOnly = True
+        Me.PROC_CODE.Visible = False
+        '
+        'DESCRIPTION
+        '
+        Me.DESCRIPTION.HeaderText = "DESCRIPTION"
+        Me.DESCRIPTION.Name = "DESCRIPTION"
+        Me.DESCRIPTION.ReadOnly = True
+        Me.DESCRIPTION.Width = 105
+        '
+        'VALUE
+        '
+        Me.VALUE.HeaderText = "VALUE"
+        Me.VALUE.Name = "VALUE"
+        Me.VALUE.ReadOnly = True
+        Me.VALUE.Width = 67
+        '
+        'VALUE_TYPE
+        '
+        Me.VALUE_TYPE.HeaderText = "VALUE TYPE"
+        Me.VALUE_TYPE.Name = "VALUE_TYPE"
+        Me.VALUE_TYPE.ReadOnly = True
+        Me.VALUE_TYPE.Width = 98
+        '
+        'DATE_FROM
+        '
+        Me.DATE_FROM.HeaderText = "DATE FROM"
+        Me.DATE_FROM.Name = "DATE_FROM"
+        Me.DATE_FROM.ReadOnly = True
+        Me.DATE_FROM.Width = 95
+        '
+        'DATE_TO
+        '
+        Me.DATE_TO.HeaderText = "DATE TO"
+        Me.DATE_TO.Name = "DATE_TO"
+        Me.DATE_TO.ReadOnly = True
+        Me.DATE_TO.Width = 79
         '
         'Panel1
         '
@@ -333,46 +380,6 @@ Partial Class frmConsignment
         Me.txtSearch.Size = New System.Drawing.Size(930, 20)
         Me.txtSearch.TabIndex = 2
         '
-        'PROC_CODE
-        '
-        Me.PROC_CODE.HeaderText = "PROC_CODE"
-        Me.PROC_CODE.Name = "PROC_CODE"
-        Me.PROC_CODE.ReadOnly = True
-        Me.PROC_CODE.Visible = False
-        '
-        'DESCRIPTION
-        '
-        Me.DESCRIPTION.HeaderText = "DESCRIPTION"
-        Me.DESCRIPTION.Name = "DESCRIPTION"
-        Me.DESCRIPTION.ReadOnly = True
-        '
-        'VALUE
-        '
-        Me.VALUE.HeaderText = "VALUE"
-        Me.VALUE.Name = "VALUE"
-        Me.VALUE.ReadOnly = True
-        Me.VALUE.Width = 150
-        '
-        'VALUE_TYPE
-        '
-        Me.VALUE_TYPE.HeaderText = "VALUE TYPE"
-        Me.VALUE_TYPE.Name = "VALUE_TYPE"
-        Me.VALUE_TYPE.ReadOnly = True
-        '
-        'DATE_FROM
-        '
-        Me.DATE_FROM.HeaderText = "DATE FROM"
-        Me.DATE_FROM.Name = "DATE_FROM"
-        Me.DATE_FROM.ReadOnly = True
-        Me.DATE_FROM.Width = 150
-        '
-        'DATE_TO
-        '
-        Me.DATE_TO.HeaderText = "DATE TO"
-        Me.DATE_TO.Name = "DATE_TO"
-        Me.DATE_TO.ReadOnly = True
-        Me.DATE_TO.Width = 150
-        '
         'frmConsignment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -396,7 +403,7 @@ Partial Class frmConsignment
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
-        CType(Me.dgvOR_DETAILS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvProc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
@@ -408,7 +415,7 @@ Partial Class frmConsignment
     Friend WithEvents txtCode As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtValue As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents rbPercentage As System.Windows.Forms.RadioButton
@@ -418,7 +425,7 @@ Partial Class frmConsignment
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents dgvOR_DETAILS As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvProc As System.Windows.Forms.DataGridView
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnSearch As System.Windows.Forms.Button

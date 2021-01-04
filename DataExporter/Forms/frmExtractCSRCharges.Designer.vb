@@ -22,8 +22,8 @@ Partial Class frmExtractCSRCharges
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvCSR_Charges = New System.Windows.Forms.DataGridView()
         Me.ISSUE_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CHARGE_SLIP = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -59,7 +59,7 @@ Partial Class frmExtractCSRCharges
         Me.chkCons = New System.Windows.Forms.CheckBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.chkCovid = New System.Windows.Forms.CheckBox()
-        Me.chkReturns = New System.Windows.Forms.CheckBox()
+        Me.chkNoCoaCode = New System.Windows.Forms.CheckBox()
         CType(Me.dgvCSR_Charges, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -78,24 +78,24 @@ Partial Class frmExtractCSRCharges
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvCSR_Charges.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvCSR_Charges.BackgroundColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvCSR_Charges.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvCSR_Charges.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvCSR_Charges.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCSR_Charges.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ISSUE_DATE, Me.CHARGE_SLIP, Me.HOSPITAL_NO, Me.PATIENT_NAME, Me.ITEM_CODE, Me.COA_CODE, Me.ITEM, Me.UOM, Me.QTY, Me.UNIT_COST, Me.TOTAL_UNIT_COST, Me.SELLING_PRICE, Me.TOTAL_SELLING_PRICE, Me.ISSUED_BY, Me.RETURNED_QTY})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvCSR_Charges.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvCSR_Charges.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvCSR_Charges.Location = New System.Drawing.Point(14, 104)
         Me.dgvCSR_Charges.MultiSelect = False
         Me.dgvCSR_Charges.Name = "dgvCSR_Charges"
@@ -375,7 +375,7 @@ Partial Class frmExtractCSRCharges
         'chkCons
         '
         Me.chkCons.AutoSize = True
-        Me.chkCons.Location = New System.Drawing.Point(14, 15)
+        Me.chkCons.Location = New System.Drawing.Point(9, 15)
         Me.chkCons.Name = "chkCons"
         Me.chkCons.Size = New System.Drawing.Size(128, 17)
         Me.chkCons.TabIndex = 63
@@ -386,7 +386,7 @@ Partial Class frmExtractCSRCharges
         '
         Me.GroupBox6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox6.Controls.Add(Me.chkCovid)
-        Me.GroupBox6.Controls.Add(Me.chkReturns)
+        Me.GroupBox6.Controls.Add(Me.chkNoCoaCode)
         Me.GroupBox6.Controls.Add(Me.chkCons)
         Me.GroupBox6.Location = New System.Drawing.Point(905, 9)
         Me.GroupBox6.Name = "GroupBox6"
@@ -397,22 +397,22 @@ Partial Class frmExtractCSRCharges
         'chkCovid
         '
         Me.chkCovid.AutoSize = True
-        Me.chkCovid.Location = New System.Drawing.Point(14, 38)
+        Me.chkCovid.Location = New System.Drawing.Point(9, 38)
         Me.chkCovid.Name = "chkCovid"
         Me.chkCovid.Size = New System.Drawing.Size(115, 17)
         Me.chkCovid.TabIndex = 66
         Me.chkCovid.Text = "Exclude COVID-19"
         Me.chkCovid.UseVisualStyleBackColor = True
         '
-        'chkReturns
+        'chkNoCoaCode
         '
-        Me.chkReturns.AutoSize = True
-        Me.chkReturns.Location = New System.Drawing.Point(14, 61)
-        Me.chkReturns.Name = "chkReturns"
-        Me.chkReturns.Size = New System.Drawing.Size(104, 17)
-        Me.chkReturns.TabIndex = 65
-        Me.chkReturns.Text = "Exclude Returns"
-        Me.chkReturns.UseVisualStyleBackColor = True
+        Me.chkNoCoaCode.AutoSize = True
+        Me.chkNoCoaCode.Location = New System.Drawing.Point(9, 61)
+        Me.chkNoCoaCode.Name = "chkNoCoaCode"
+        Me.chkNoCoaCode.Size = New System.Drawing.Size(134, 17)
+        Me.chkNoCoaCode.TabIndex = 65
+        Me.chkNoCoaCode.Text = "Exclude No COA Code"
+        Me.chkNoCoaCode.UseVisualStyleBackColor = True
         '
         'frmExtractCSRCharges
         '
@@ -477,7 +477,7 @@ Partial Class frmExtractCSRCharges
     Friend WithEvents ISSUED_BY As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents RETURNED_QTY As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents chkReturns As System.Windows.Forms.CheckBox
+    Friend WithEvents chkNoCoaCode As System.Windows.Forms.CheckBox
     Friend WithEvents chkCovid As System.Windows.Forms.CheckBox
 
 End Class

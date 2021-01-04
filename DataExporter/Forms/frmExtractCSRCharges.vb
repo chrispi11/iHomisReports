@@ -17,7 +17,7 @@ Public Class frmExtractCSRCharges
                                              txtSearch,
                                              chkCons,
                                              chkCovid,
-                                             chkReturns)
+                                             chkNoCoaCode)
             pbProgress.Minimum = 0
             pbProgress.Value = 0
             Me.Enabled = True
@@ -38,6 +38,7 @@ Public Class frmExtractCSRCharges
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExtractCOA.Click
         chkCons.Checked = True
+        chkNoCoaCode.Checked = True
         btnShow.PerformClick()
         clsDGVtoExcel.ExtractDGVtoCOAExcel(dgvCSR_Charges, pbProgress)
     End Sub
@@ -59,7 +60,7 @@ Public Class frmExtractCSRCharges
                                  txtSearch,
                                  chkCons,
                                  chkCovid,
-                                 chkReturns)
+                                 chkNoCoaCode)
     End Sub
 
 End Class
