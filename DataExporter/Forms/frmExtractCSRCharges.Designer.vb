@@ -22,8 +22,8 @@ Partial Class frmExtractCSRCharges
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvCSR_Charges = New System.Windows.Forms.DataGridView()
         Me.ISSUE_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CHARGE_SLIP = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,6 +50,7 @@ Partial Class frmExtractCSRCharges
         Me.dpDateFrom = New System.Windows.Forms.DateTimePicker()
         Me.dpDateTo = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cbSearchBy = New System.Windows.Forms.ComboBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.btnShow = New System.Windows.Forms.Button()
@@ -78,24 +79,24 @@ Partial Class frmExtractCSRCharges
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvCSR_Charges.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvCSR_Charges.BackgroundColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvCSR_Charges.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvCSR_Charges.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvCSR_Charges.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCSR_Charges.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ISSUE_DATE, Me.CHARGE_SLIP, Me.HOSPITAL_NO, Me.PATIENT_NAME, Me.ITEM_CODE, Me.COA_CODE, Me.ITEM, Me.UOM, Me.QTY, Me.UNIT_COST, Me.TOTAL_UNIT_COST, Me.SELLING_PRICE, Me.TOTAL_SELLING_PRICE, Me.ISSUED_BY, Me.RETURNED_QTY})
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvCSR_Charges.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvCSR_Charges.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvCSR_Charges.Location = New System.Drawing.Point(14, 104)
         Me.dgvCSR_Charges.MultiSelect = False
         Me.dgvCSR_Charges.Name = "dgvCSR_Charges"
@@ -210,7 +211,6 @@ Partial Class frmExtractCSRCharges
         Me.RETURNED_QTY.HeaderText = "RETURNED ITEMS"
         Me.RETURNED_QTY.Name = "RETURNED_QTY"
         Me.RETURNED_QTY.ReadOnly = True
-        Me.RETURNED_QTY.Visible = False
         Me.RETURNED_QTY.Width = 118
         '
         'pbProgress
@@ -227,9 +227,9 @@ Partial Class frmExtractCSRCharges
         '
         Me.txtSearch.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSearch.Location = New System.Drawing.Point(225, 13)
+        Me.txtSearch.Location = New System.Drawing.Point(339, 13)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(200, 20)
+        Me.txtSearch.Size = New System.Drawing.Size(86, 20)
         Me.txtSearch.TabIndex = 4
         '
         'cbFilterBy
@@ -237,9 +237,9 @@ Partial Class frmExtractCSRCharges
         Me.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbFilterBy.FormattingEnabled = True
         Me.cbFilterBy.Items.AddRange(New Object() {"", "CHARGE_SLIP_NO", "HOSPITAL_NO", "PATIENT_NAME", "ITEM", "ISSUED_BY"})
-        Me.cbFilterBy.Location = New System.Drawing.Point(67, 13)
+        Me.cbFilterBy.Location = New System.Drawing.Point(206, 13)
         Me.cbFilterBy.Name = "cbFilterBy"
-        Me.cbFilterBy.Size = New System.Drawing.Size(150, 21)
+        Me.cbFilterBy.Size = New System.Drawing.Size(127, 21)
         Me.cbFilterBy.TabIndex = 7
         '
         'Label1
@@ -295,6 +295,7 @@ Partial Class frmExtractCSRCharges
         '
         Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.cbSearchBy)
         Me.GroupBox2.Controls.Add(Me.txtSearch)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.cbFilterBy)
@@ -303,6 +304,16 @@ Partial Class frmExtractCSRCharges
         Me.GroupBox2.Size = New System.Drawing.Size(430, 50)
         Me.GroupBox2.TabIndex = 58
         Me.GroupBox2.TabStop = False
+        '
+        'cbSearchBy
+        '
+        Me.cbSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbSearchBy.FormattingEnabled = True
+        Me.cbSearchBy.Items.AddRange(New Object() {"", "CONSIGNMENT", "CLEARVUE", "INFIMAX", "IVAXX", "MACRIK", "MAHINTANA", "RUSANN", "SANNOVEX", "TWINCIRCA"})
+        Me.cbSearchBy.Location = New System.Drawing.Point(67, 13)
+        Me.cbSearchBy.Name = "cbSearchBy"
+        Me.cbSearchBy.Size = New System.Drawing.Size(133, 21)
+        Me.cbSearchBy.TabIndex = 12
         '
         'GroupBox3
         '
@@ -461,6 +472,10 @@ Partial Class frmExtractCSRCharges
     Friend WithEvents btnExtractCOA As System.Windows.Forms.Button
     Friend WithEvents btnExtract As System.Windows.Forms.Button
     Friend WithEvents chkCons As System.Windows.Forms.CheckBox
+    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
+    Friend WithEvents chkNoCoaCode As System.Windows.Forms.CheckBox
+    Friend WithEvents chkCovid As System.Windows.Forms.CheckBox
+    Friend WithEvents cbSearchBy As System.Windows.Forms.ComboBox
     Friend WithEvents ISSUE_DATE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CHARGE_SLIP As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HOSPITAL_NO As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -475,9 +490,6 @@ Partial Class frmExtractCSRCharges
     Friend WithEvents SELLING_PRICE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TOTAL_SELLING_PRICE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ISSUED_BY As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents RETURNED_QTY As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents chkNoCoaCode As System.Windows.Forms.CheckBox
-    Friend WithEvents chkCovid As System.Windows.Forms.CheckBox
 
 End Class

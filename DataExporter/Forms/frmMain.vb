@@ -66,4 +66,8 @@ Public Class Form1
             MaintenanceToolStripMenuItem.Enabled = True
         End If
     End Sub
+
+    Private Sub COAFormatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles COAFormatToolStripMenuItem.Click
+
+    End Sub
 End Class

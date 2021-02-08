@@ -13,6 +13,7 @@ Public Class frmExtractCSRCharges
                                              pbProgress,
                                              dpDateFrom.Value.Date,
                                              dpDateTo.Value.Date,
+                                             cbSearchBy,
                                              cbFilterBy,
                                              txtSearch,
                                              chkCons,
@@ -28,7 +29,9 @@ Public Class frmExtractCSRCharges
         End Try
         If dgvCSR_Charges.RowCount > 0 Then
             btnExtract.Enabled = True
-            btnExtractCoa.Enabled = True
+            If cbSearchBy.Text = "" Then
+                btnExtractCOA.Enabled = True
+            End If
         Else
             btnExtract.Enabled = False
             btnExtractCoa.Enabled = False
@@ -43,6 +46,8 @@ Public Class frmExtractCSRCharges
         clsDGVtoExcel.ExtractDGVtoCOAExcel(dgvCSR_Charges, pbProgress)
     End Sub
 
+    '------------------------   Events   -------------------------------
+
     Private Sub cbFilterBy_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbFilterBy.SelectedIndexChanged
         txtSearch.Focus()
     End Sub
@@ -51,16 +56,11 @@ Public Class frmExtractCSRCharges
         clsDGVtoExcel.ExtractDGVtoExcel_2(dgvCSR_Charges, pbProgress)
     End Sub
 
-    Private Sub txtSearch_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtSearch.TextChanged
-        clsCSRCharges.FillCSRChargesGrid(dgvCSR_Charges,
-                                 pbProgress,
-                                 dpDateFrom.Value.Date,
-                                 dpDateTo.Value.Date,
-                                 cbFilterBy,
-                                 txtSearch,
-                                 chkCons,
-                                 chkCovid,
-                                 chkNoCoaCode)
+    Private Sub cbSearchBy_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbSearchBy.SelectedIndexChanged
+        If cbSearchBy.Text <> "" Then
+            btnExtractCOA.Enabled = False
+        Else
+            btnExtractCOA.Enabled = True
+        End If
     End Sub
-
 End Class

@@ -33,7 +33,7 @@ Partial Class frmConsignment
         Me.rbAmount = New System.Windows.Forms.RadioButton()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtValue = New System.Windows.Forms.TextBox()
-        Me.dpDateFrom = New System.Windows.Forms.DateTimePicker()
+        Me.dpDateMod = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -172,21 +172,21 @@ Partial Class frmConsignment
         Me.txtValue.Size = New System.Drawing.Size(273, 20)
         Me.txtValue.TabIndex = 4
         '
-        'dpDateFrom
+        'dpDateMod
         '
-        Me.dpDateFrom.CalendarFont = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dpDateFrom.CustomFormat = "MM/dd/yyyy"
-        Me.dpDateFrom.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dpDateFrom.Location = New System.Drawing.Point(91, 16)
-        Me.dpDateFrom.Name = "dpDateFrom"
-        Me.dpDateFrom.Size = New System.Drawing.Size(115, 23)
-        Me.dpDateFrom.TabIndex = 56
+        Me.dpDateMod.CalendarFont = New System.Drawing.Font("Arial Rounded MT Bold", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dpDateMod.CustomFormat = "MM/dd/yyyy"
+        Me.dpDateMod.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dpDateMod.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dpDateMod.Location = New System.Drawing.Point(91, 16)
+        Me.dpDateMod.Name = "dpDateMod"
+        Me.dpDateMod.Size = New System.Drawing.Size(115, 23)
+        Me.dpDateMod.TabIndex = 56
         '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.Label4)
-        Me.GroupBox3.Controls.Add(Me.dpDateFrom)
+        Me.GroupBox3.Controls.Add(Me.dpDateMod)
         Me.GroupBox3.Location = New System.Drawing.Point(107, 6)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(220, 50)
@@ -421,7 +421,7 @@ Partial Class frmConsignment
     Friend WithEvents rbPercentage As System.Windows.Forms.RadioButton
     Friend WithEvents rbAmount As System.Windows.Forms.RadioButton
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents dpDateFrom As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dpDateMod As System.Windows.Forms.DateTimePicker
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox

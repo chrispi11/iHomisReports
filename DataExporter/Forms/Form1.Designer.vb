@@ -77,8 +77,8 @@ Partial Class Form1
         '
         Me.COAFormatToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PharmacyToolStripMenuItem1, Me.CSRToolStripMenuItem1})
         Me.COAFormatToolStripMenuItem.Name = "COAFormatToolStripMenuItem"
-        Me.COAFormatToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
-        Me.COAFormatToolStripMenuItem.Text = "COA Format"
+        Me.COAFormatToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
+        Me.COAFormatToolStripMenuItem.Text = "Cost Centers"
         '
         'PharmacyToolStripMenuItem1
         '

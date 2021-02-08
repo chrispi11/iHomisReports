@@ -125,8 +125,7 @@
     Sub InsertConsDetails(ByVal proccode As String,
                           ByVal value As Decimal,
                           ByVal ispercent As Integer,
-                          ByVal datefrom As Date,
-                          ByVal dateto As Date)
+                          ByVal datefrom As Date)
         Try
             Dim cntr As Integer = 0
             opencon()
@@ -134,10 +133,33 @@
             Cmd.Parameters.AddWithValue("@value", value)
             Cmd.Parameters.AddWithValue("@ispercent", ispercent)
             Cmd.Parameters.AddWithValue("@datefrom", datefrom)
-            Cmd.Parameters.AddWithValue("@dateto", dateto)
+            'Cmd.Parameters.AddWithValue("@dateto", dateto)
             Cmd.CommandText = "insert into " +
-                              "  PROC_CONS " +
-                              "values(@proccode, @value, @ispercent, @datefrom, @dateto)"
+                              "  PROC_CONS(PROCCODE, CONSVAL, CONSVAL_ISPERCENT, CONS_DATEFROM) " +
+                              "values(@proccode, @value, @ispercent, @datefrom)"
+            Cmd.ExecuteNonQuery()
+
+            Cmd.Parameters.Clear()
+            closecon()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Cmd.Parameters.Clear()
+            Con.Close()
+        End Try
+    End Sub
+
+    Sub UpdateDateTo(ByVal proccode As String,
+                     ByVal dateto As Date)
+        Try
+            Dim cntr As Integer = 0
+            opencon()
+            Cmd.Parameters.AddWithValue("@proccode", proccode)
+            Cmd.Parameters.AddWithValue("@dateto", dateto)
+            Cmd.CommandText = "update PROC_CONS " +
+                              "  set CONS_DATETO = @dateto " +
+                              "where " +
+                              "  PROCCODE = @proccode " +
+                              "and CONS_DATETO is null"
             Cmd.ExecuteNonQuery()
 
             Cmd.Parameters.Clear()

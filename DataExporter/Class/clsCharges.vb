@@ -4,6 +4,7 @@
                               ByRef prg As ProgressBar,
                               ByVal DateFrom As Date,
                               ByVal DateTo As Date,
+                              ByRef cbSearchBy As ComboBox,
                               ByRef cbFilter As ComboBox,
                               ByRef txtSearch As TextBox,
                               ByRef chkCons As CheckBox,
@@ -16,6 +17,7 @@
             Dim cntr As Integer = 0
             opencon()
             Cmd.Parameters.AddWithValue("@search", txtSearch.Text + "%")
+            Cmd.Parameters.AddWithValue("@searchby", "%" + cbSearchBy.Text + "%")
             Cmd.Parameters.AddWithValue("@x", "x")
             Cmd.CommandText = "select * from VW_PHARMACY_CHARGES " &
                               "left join " &
@@ -60,6 +62,12 @@
                 Cmd.CommandText = Cmd.CommandText & " and " &
                              cbFilter.Text & " like " &
                              "@search"
+            End If
+
+            If cbSearchBy.Text <> "" Then
+                Cmd.CommandText = Cmd.CommandText & " and " &
+                             "ITEM like " &
+                             "@searchby"
             End If
 
             Dr = Cmd.ExecuteReader
@@ -133,6 +141,7 @@
                            ByRef prg As ProgressBar,
                            ByVal DateFrom As Date,
                            ByVal DateTo As Date,
+                           ByRef cbSearch As ComboBox,
                            ByRef cbFilter As ComboBox,
                            ByRef txtSearch As TextBox,
                            ByRef chkCons As CheckBox,
@@ -144,6 +153,7 @@
             Dim cntr As Integer = 0
             opencon()
             Cmd.Parameters.AddWithValue("@search", txtSearch.Text + "%")
+            Cmd.Parameters.AddWithValue("@searchby", "%" + cbSearch.Text + "%")
             Cmd.Parameters.AddWithValue("@x", "x")
             Cmd.CommandText = "select * from VW_CSR_CHARGES " &
                               "left join " &
@@ -182,6 +192,12 @@
                 Cmd.CommandText = Cmd.CommandText & " and " &
                             cbFilter.Text & " like " &
                            "@search"
+            End If
+
+            If cbSearch.Text <> "" Then
+                Cmd.CommandText = Cmd.CommandText & " and " &
+                                "ITEM like " &
+                                "@searchby"
             End If
             Dr = Cmd.ExecuteReader
 
