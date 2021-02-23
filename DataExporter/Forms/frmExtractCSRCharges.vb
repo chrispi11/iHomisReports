@@ -9,25 +9,39 @@ Public Class frmExtractCSRCharges
     '------------------------   Buttons   -------------------------------
     Private Sub btnShow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnShow.Click
         Try
-            clsCSRCharges.FillCSRChargesGrid(dgvCSR_Charges,
-                                             pbProgress,
-                                             dpDateFrom.Value.Date,
-                                             dpDateTo.Value.Date,
-                                             cbSearchBy,
-                                             cbFilterBy,
-                                             txtSearch,
-                                             chkCons,
-                                             chkCovid,
-                                             chkNoCoaCode)
+            If tabCSR.SelectedTab.Text = "Issued" Then
+                clsCSRCharges.FillCSRIssuedGrid(dgvCSR_Issued,
+                                 pbProgress,
+                                 dpDateFrom.Value.Date,
+                                 dpDateTo.Value.Date,
+                                 cbSearchBy,
+                                 cbFilterBy,
+                                 txtSearch,
+                                 chkCons,
+                                 chkCovid,
+                                 chkNoCoaCode)
+                MsgBox("Retrieve " & dgvCSR_Issued.RowCount & " Record/s.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "")
+            ElseIf tabCSR.SelectedTab.Text = "Charges" Then
+                clsCSRCharges.FillCSRChargesGrid(dgvCSR_Charges,
+                                 pbProgress,
+                                 dpDateFrom.Value.Date,
+                                 dpDateTo.Value.Date,
+                                 cbSearchBy,
+                                 cbFilterBy,
+                                 txtSearch,
+                                 chkCons,
+                                 chkCovid,
+                                 chkNoCoaCode)
+                MsgBox("Retrieve " & dgvCSR_Charges.RowCount & " Record/s.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "")
+            End If
             pbProgress.Minimum = 0
             pbProgress.Value = 0
             Me.Enabled = True
-            MsgBox("Retrieve " & dgvCSR_Charges.RowCount & " Record/s.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "")
         Catch ex As Exception
             MsgBox(ex.ToString)
             Con.Close()
         End Try
-        If dgvCSR_Charges.RowCount > 0 Then
+        If dgvCSR_Issued.RowCount > 0 Then
             btnExtract.Enabled = True
             If cbSearchBy.Text = "" Then
                 btnExtractCOA.Enabled = True
@@ -43,7 +57,7 @@ Public Class frmExtractCSRCharges
         chkCons.Checked = True
         chkNoCoaCode.Checked = True
         btnShow.PerformClick()
-        clsDGVtoExcel.ExtractDGVtoCOAExcel(dgvCSR_Charges, pbProgress)
+        clsDGVtoExcel.ExtractDGVtoCOAExcel(dgvCSR_Issued, pbProgress)
     End Sub
 
     '------------------------   Events   -------------------------------
@@ -53,7 +67,7 @@ Public Class frmExtractCSRCharges
     End Sub
 
     Private Sub btnExtract_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExtract.Click
-        clsDGVtoExcel.ExtractDGVtoExcel_2(dgvCSR_Charges, pbProgress)
+        clsDGVtoExcel.ExtractDGVtoExcel_2(dgvCSR_Issued, pbProgress)
     End Sub
 
     Private Sub cbSearchBy_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbSearchBy.SelectedIndexChanged

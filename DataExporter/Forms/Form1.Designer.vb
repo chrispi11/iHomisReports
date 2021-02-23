@@ -30,6 +30,8 @@ Partial Class Form1
         Me.COAFormatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PharmacyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CSRToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MiscellaneousToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TurnAroundTimeForEmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaintenanceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsignmentSetupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChargesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -38,13 +40,14 @@ Partial Class Form1
         Me.pnlBody = New System.Windows.Forms.Panel()
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.lblComputerName = New System.Windows.Forms.Label()
+        Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.HighlightText
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CashierToolStripMenuItem, Me.ChargesToolStripMenuItem, Me.MaintenanceToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HomeToolStripMenuItem, Me.CashierToolStripMenuItem, Me.ChargesToolStripMenuItem, Me.MiscellaneousToolStripMenuItem, Me.MaintenanceToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1350, 24)
@@ -55,50 +58,68 @@ Partial Class Form1
         '
         Me.CashierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ORDetailsToolStripMenuItem})
         Me.CashierToolStripMenuItem.Enabled = False
+        Me.CashierToolStripMenuItem.Image = Global.iHomisReports.My.Resources.Resources.receipt
         Me.CashierToolStripMenuItem.Name = "CashierToolStripMenuItem"
-        Me.CashierToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
-        Me.CashierToolStripMenuItem.Text = "CTO Receipts"
+        Me.CashierToolStripMenuItem.Size = New System.Drawing.Size(104, 20)
+        Me.CashierToolStripMenuItem.Text = "CTO &Receipts"
         '
         'ORDetailsToolStripMenuItem
         '
         Me.ORDetailsToolStripMenuItem.Name = "ORDetailsToolStripMenuItem"
         Me.ORDetailsToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
-        Me.ORDetailsToolStripMenuItem.Text = "OR Details"
+        Me.ORDetailsToolStripMenuItem.Text = "&OR Details"
         '
         'ChargesToolStripMenuItem
         '
         Me.ChargesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.COAFormatToolStripMenuItem})
         Me.ChargesToolStripMenuItem.Enabled = False
+        Me.ChargesToolStripMenuItem.Image = Global.iHomisReports.My.Resources.Resources.medicine
         Me.ChargesToolStripMenuItem.Name = "ChargesToolStripMenuItem"
-        Me.ChargesToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
-        Me.ChargesToolStripMenuItem.Text = "Charges"
+        Me.ChargesToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
+        Me.ChargesToolStripMenuItem.Text = "&Inventory"
         '
         'COAFormatToolStripMenuItem
         '
         Me.COAFormatToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PharmacyToolStripMenuItem1, Me.CSRToolStripMenuItem1})
         Me.COAFormatToolStripMenuItem.Name = "COAFormatToolStripMenuItem"
         Me.COAFormatToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
-        Me.COAFormatToolStripMenuItem.Text = "Cost Centers"
+        Me.COAFormatToolStripMenuItem.Text = "&Cost Centers"
         '
         'PharmacyToolStripMenuItem1
         '
         Me.PharmacyToolStripMenuItem1.Name = "PharmacyToolStripMenuItem1"
         Me.PharmacyToolStripMenuItem1.Size = New System.Drawing.Size(127, 22)
-        Me.PharmacyToolStripMenuItem1.Text = "Pharmacy"
+        Me.PharmacyToolStripMenuItem1.Text = "&Pharmacy"
         '
         'CSRToolStripMenuItem1
         '
         Me.CSRToolStripMenuItem1.Name = "CSRToolStripMenuItem1"
         Me.CSRToolStripMenuItem1.Size = New System.Drawing.Size(127, 22)
-        Me.CSRToolStripMenuItem1.Text = "CSR"
+        Me.CSRToolStripMenuItem1.Text = "&CSR"
+        '
+        'MiscellaneousToolStripMenuItem
+        '
+        Me.MiscellaneousToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnAroundTimeForEmployeesToolStripMenuItem})
+        Me.MiscellaneousToolStripMenuItem.Enabled = False
+        Me.MiscellaneousToolStripMenuItem.Image = Global.iHomisReports.My.Resources.Resources.clipboard
+        Me.MiscellaneousToolStripMenuItem.Name = "MiscellaneousToolStripMenuItem"
+        Me.MiscellaneousToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.MiscellaneousToolStripMenuItem.Text = "&Misc"
+        '
+        'TurnAroundTimeForEmployeesToolStripMenuItem
+        '
+        Me.TurnAroundTimeForEmployeesToolStripMenuItem.Name = "TurnAroundTimeForEmployeesToolStripMenuItem"
+        Me.TurnAroundTimeForEmployeesToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.TurnAroundTimeForEmployeesToolStripMenuItem.Text = "&Turn Around Time for Employees"
         '
         'MaintenanceToolStripMenuItem
         '
         Me.MaintenanceToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsignmentSetupToolStripMenuItem, Me.ChargesToolStripMenuItem1})
         Me.MaintenanceToolStripMenuItem.Enabled = False
+        Me.MaintenanceToolStripMenuItem.Image = Global.iHomisReports.My.Resources.Resources.list
         Me.MaintenanceToolStripMenuItem.Name = "MaintenanceToolStripMenuItem"
-        Me.MaintenanceToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
-        Me.MaintenanceToolStripMenuItem.Text = "Maintenance"
+        Me.MaintenanceToolStripMenuItem.Size = New System.Drawing.Size(104, 20)
+        Me.MaintenanceToolStripMenuItem.Text = "Main&tenance"
         '
         'ConsignmentSetupToolStripMenuItem
         '
@@ -132,6 +153,8 @@ Partial Class Form1
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlBody.AutoSize = True
         Me.pnlBody.BackColor = System.Drawing.SystemColors.Window
+        Me.pnlBody.BackgroundImage = Global.iHomisReports.My.Resources.Resources.menu
+        Me.pnlBody.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.pnlBody.Location = New System.Drawing.Point(0, 27)
         Me.pnlBody.Name = "pnlBody"
         Me.pnlBody.Size = New System.Drawing.Size(1350, 711)
@@ -158,6 +181,13 @@ Partial Class Form1
         Me.lblComputerName.TabIndex = 3
         Me.lblComputerName.Text = "Label1"
         Me.lblComputerName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'HomeToolStripMenuItem
+        '
+        Me.HomeToolStripMenuItem.Image = Global.iHomisReports.My.Resources.Resources.DJPRCH
+        Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
+        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.HomeToolStripMenuItem.Text = "Home"
         '
         'Form1
         '
@@ -198,4 +228,7 @@ Partial Class Form1
     Friend WithEvents PharmacyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CSRToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents lblComputerName As System.Windows.Forms.Label
+    Friend WithEvents MiscellaneousToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TurnAroundTimeForEmployeesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents HomeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

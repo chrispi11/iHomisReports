@@ -2,6 +2,11 @@
 
 Public Class Form1
 
+    Private Sub HomeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HomeToolStripMenuItem.Click
+        pnlBody.Controls.Clear()
+    End Sub
+
+    'CTO Receips
     Private Sub ORDetailsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ORDetailsToolStripMenuItem.Click
         callforms(frmExtractORDetails, pnlBody)
     End Sub
@@ -10,12 +15,9 @@ Public Class Form1
         callforms(frmExtractORSummary, pnlBody)
     End Sub
 
+    'Inventory
     Private Sub PharmacyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         callforms(frmExtractPharmacyCharges, pnlBody)
-    End Sub
-
-    Private Sub ConsignmentSetupToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ConsignmentSetupToolStripMenuItem.Click
-        callforms(frmConsignment, pnlBody)
     End Sub
 
     Private Sub PharmacyToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PharmacyToolStripMenuItem1.Click
@@ -50,11 +52,22 @@ Public Class Form1
         frmCOACode.frmCOA_Load(e, e)
     End Sub
 
+    'Misc
+    Private Sub TurnAroundTimeForEmployeesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TurnAroundTimeForEmployeesToolStripMenuItem.Click
+        callforms(frmTATofEmployees, pnlBody)
+    End Sub
+
+    'Maintenance
+    Private Sub ConsignmentSetupToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ConsignmentSetupToolStripMenuItem.Click
+        callforms(frmConsignment, pnlBody)
+    End Sub
+
     Private Sub MenuRights()
 
         If lblComputerName.Text.Contains("ACCOUNTING") Then
             CashierToolStripMenuItem.Enabled = True
             MaintenanceToolStripMenuItem.Enabled = True
+            MiscellaneousToolStripMenuItem.Enabled = True
         ElseIf lblComputerName.Text.Contains("PHARMACY") Or lblComputerName.Text.Contains("CONS") Or lblComputerName.Text.Contains("CSR") Then
             ChargesToolStripMenuItem.Enabled = True
         ElseIf lblComputerName.Text.Contains("SUPPLY") Then
@@ -64,10 +77,7 @@ Public Class Form1
             CashierToolStripMenuItem.Enabled = True
             ChargesToolStripMenuItem.Enabled = True
             MaintenanceToolStripMenuItem.Enabled = True
+            MiscellaneousToolStripMenuItem.Enabled = True
         End If
-    End Sub
-
-    Private Sub COAFormatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles COAFormatToolStripMenuItem.Click
-
     End Sub
 End Class

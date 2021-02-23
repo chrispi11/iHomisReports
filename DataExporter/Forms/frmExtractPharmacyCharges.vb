@@ -10,35 +10,52 @@ Public Class frmExtractPharmacyCharges
     '------------------------   Buttons   -------------------------------
     Private Sub btnShow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnShow.Click
         Try
-            clsPharmaCharges.FillPharmaChargesGrid(dgvPharma_Charges,
-                                                   pbProgress,
-                                                   dpDateFrom.Value.Date,
-                                                   dpDateTo.Value.Date,
-                                                   cbSearchBy,
-                                                   cbFilterBy,
-                                                   txtSearch,
-                                                   chkCons,
-                                                   chkCovid,
-                                                   chkEP,
-                                                   chkNoCoaCode)
+            If tabPharmacy.SelectedTab.Text = "Issued" Then
+                clsPharmaCharges.FillPharmaIssuedGrid(dgvPharma_Issued,
+                                                      pbProgress,
+                                                      dpDateFrom.Value.Date,
+                                                      dpDateTo.Value.Date,
+                                                      cbSearchBy,
+                                                      cbFilterBy,
+                                                      txtSearch,
+                                                      chkCons,
+                                                      chkCovid,
+                                                      chkEP,
+                                                      chkNoCoaCode)
+                MsgBox("Retrieve " & dgvPharma_Issued.RowCount & " Record/s.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "")
+            ElseIf tabPharmacy.SelectedTab.Text = "Charges" Then
+                clsPharmaCharges.FillPharmaChargesGrid(dgvPharma_Charges,
+                                                      pbProgress,
+                                                      dpDateFrom.Value.Date,
+                                                      dpDateTo.Value.Date,
+                                                      cbSearchBy,
+                                                      cbFilterBy,
+                                                      txtSearch,
+                                                      chkCons,
+                                                      chkCovid,
+                                                      chkEP,
+                                                      chkNoCoaCode)
+                MsgBox("Retrieve " & dgvPharma_Charges.RowCount & " Record/s.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "")
+            ElseIf tabPharmacy.SelectedTab.Text = "Item Summary" Then
+                clsPharmaCharges.FillPharmaItemSummaryGrid(dgv_ItemSummary,
+                                                           dpDateFrom.Value.Date,
+                                                           dpDateTo.Value.Date,
+                                                           cbFilterBy,
+                                                           txtSearch,
+                                                           chkCons,
+                                                           chkCovid,
+                                                           chkEP)
+                MsgBox("Retrieve " & dgv_ItemSummary.RowCount & " Record/s.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "")
+            End If
 
-            clsPharmaCharges.FillPharmaItemSummaryGrid(dgv_ItemSummary,
-                                                       dpDateFrom.Value.Date,
-                                                       dpDateTo.Value.Date,
-                                                       cbFilterBy,
-                                                       txtSearch,
-                                                       chkCons,
-                                                       chkCovid,
-                                                       chkEP)
             pbProgress.Minimum = 0
             pbProgress.Value = 0
             Me.Enabled = True
-            MsgBox("Retrieve " & dgvPharma_Charges.RowCount & " Record/s.", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "")
         Catch ex As Exception
             MsgBox(ex.ToString)
             Con.Close()
         End Try
-        If dgvPharma_Charges.RowCount > 0 Then
+        If dgvPharma_Issued.RowCount > 0 Then
             btnExtract.Enabled = True
             If cbSearchBy.Text = "" Then
                 btnExtractCoa.Enabled = True
@@ -50,7 +67,7 @@ Public Class frmExtractPharmacyCharges
     End Sub
 
     Private Sub btnExtract_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExtract.Click
-        clsDGVtoExcel.ExtractDGVtoExcel_2(dgvPharma_Charges,
+        clsDGVtoExcel.ExtractDGVtoExcel_2(dgvPharma_Issued,
                                           pbProgress)
     End Sub
 
@@ -59,7 +76,7 @@ Public Class frmExtractPharmacyCharges
         chkEP.Checked = True
         chkNoCoaCode.Checked = True
         btnShow.PerformClick()
-        clsDGVtoExcel.ExtractDGVtoCOAExcel(dgvPharma_Charges,
+        clsDGVtoExcel.ExtractDGVtoCOAExcel(dgvPharma_Issued,
                                            pbProgress)
     End Sub
 
