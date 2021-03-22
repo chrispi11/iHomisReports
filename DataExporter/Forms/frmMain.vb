@@ -67,7 +67,6 @@ Public Class Form1
         If lblComputerName.Text.Contains("ACCOUNTING") Then
             CashierToolStripMenuItem.Enabled = True
             MaintenanceToolStripMenuItem.Enabled = True
-            MiscellaneousToolStripMenuItem.Enabled = True
         ElseIf lblComputerName.Text.Contains("PHARMACY") Or lblComputerName.Text.Contains("CONS") Or lblComputerName.Text.Contains("CSR") Then
             ChargesToolStripMenuItem.Enabled = True
         ElseIf lblComputerName.Text.Contains("SUPPLY") Then
@@ -77,7 +76,6 @@ Public Class Form1
             CashierToolStripMenuItem.Enabled = True
             ChargesToolStripMenuItem.Enabled = True
             MaintenanceToolStripMenuItem.Enabled = True
-            MiscellaneousToolStripMenuItem.Enabled = True
         End If
     End Sub
 End Class

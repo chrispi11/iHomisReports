@@ -401,7 +401,7 @@ Partial Class frmExtractPharmacyCharges
         '
         Me.cbSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbSearchBy.FormattingEnabled = True
-        Me.cbSearchBy.Items.AddRange(New Object() {"", "CONSIGNMENT", "CLEARVUE", "INFIMAX", "IVAXX", "MACRIK", "MAHINTANA", "RUSANN", "SANNOVEX", "TWINCIRCA"})
+        Me.cbSearchBy.Items.AddRange(New Object() {"", "COVID", "CONSIGNMENT", "CLEARVUE", "INFIMAX", "IVAXX", "MACRIK", "MAHINTANA", "RUSANN", "SANNOVEX", "TWINCIRCA"})
         Me.cbSearchBy.Location = New System.Drawing.Point(67, 13)
         Me.cbSearchBy.Name = "cbSearchBy"
         Me.cbSearchBy.Size = New System.Drawing.Size(133, 21)

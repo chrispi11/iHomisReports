@@ -24,6 +24,7 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CashierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ORDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChargesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,7 +41,6 @@ Partial Class Form1
         Me.pnlBody = New System.Windows.Forms.Panel()
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.lblComputerName = New System.Windows.Forms.Label()
-        Me.HomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -53,6 +53,13 @@ Partial Class Form1
         Me.MenuStrip1.Size = New System.Drawing.Size(1350, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'HomeToolStripMenuItem
+        '
+        Me.HomeToolStripMenuItem.Image = Global.iHomisReports.My.Resources.Resources.DJPRCH
+        Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
+        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.HomeToolStripMenuItem.Text = "Home"
         '
         'CashierToolStripMenuItem
         '
@@ -100,7 +107,6 @@ Partial Class Form1
         'MiscellaneousToolStripMenuItem
         '
         Me.MiscellaneousToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TurnAroundTimeForEmployeesToolStripMenuItem})
-        Me.MiscellaneousToolStripMenuItem.Enabled = False
         Me.MiscellaneousToolStripMenuItem.Image = Global.iHomisReports.My.Resources.Resources.clipboard
         Me.MiscellaneousToolStripMenuItem.Name = "MiscellaneousToolStripMenuItem"
         Me.MiscellaneousToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
@@ -181,13 +187,6 @@ Partial Class Form1
         Me.lblComputerName.TabIndex = 3
         Me.lblComputerName.Text = "Label1"
         Me.lblComputerName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'HomeToolStripMenuItem
-        '
-        Me.HomeToolStripMenuItem.Image = Global.iHomisReports.My.Resources.Resources.DJPRCH
-        Me.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
-        Me.HomeToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
-        Me.HomeToolStripMenuItem.Text = "Home"
         '
         'Form1
         '

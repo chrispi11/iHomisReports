@@ -40,6 +40,7 @@ Public Class frmExtractPharmacyCharges
                 clsPharmaCharges.FillPharmaItemSummaryGrid(dgv_ItemSummary,
                                                            dpDateFrom.Value.Date,
                                                            dpDateTo.Value.Date,
+                                                           cbSearchBy,
                                                            cbFilterBy,
                                                            txtSearch,
                                                            chkCons,

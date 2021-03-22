@@ -22,8 +22,10 @@ Partial Class frmTATofEmployees
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pbProgress = New System.Windows.Forms.ProgressBar()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.txtSearch = New System.Windows.Forms.TextBox()
@@ -43,6 +45,17 @@ Partial Class frmTATofEmployees
         Me.Detail = New System.Windows.Forms.TabPage()
         Me.dgvTAT = New System.Windows.Forms.DataGridView()
         Me.Summary = New System.Windows.Forms.TabPage()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.rbHrs = New System.Windows.Forms.RadioButton()
+        Me.rbDays = New System.Windows.Forms.RadioButton()
+        Me.dgvTATSummary = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AVG = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DH = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cbGroup = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.HOSPITAL_NO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PATIENT_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DEPT_NAME = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -51,6 +64,8 @@ Partial Class frmTATofEmployees
         Me.CLEAR_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DIFFERENCE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.REMARKS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnRemove = New System.Windows.Forms.Button()
+        Me.DH_COPY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -58,6 +73,9 @@ Partial Class frmTATofEmployees
         Me.tabTAT.SuspendLayout()
         Me.Detail.SuspendLayout()
         CType(Me.dgvTAT, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Summary.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        CType(Me.dgvTATSummary, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pbProgress
@@ -210,9 +228,9 @@ Partial Class frmTATofEmployees
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tabTAT.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
-        Me.tabTAT.Controls.Add(Me.Detail)
         Me.tabTAT.Controls.Add(Me.Summary)
-        Me.tabTAT.Location = New System.Drawing.Point(13, 97)
+        Me.tabTAT.Controls.Add(Me.Detail)
+        Me.tabTAT.Location = New System.Drawing.Point(13, 103)
         Me.tabTAT.Name = "tabTAT"
         Me.tabTAT.SelectedIndex = 0
         Me.tabTAT.Size = New System.Drawing.Size(1318, 424)
@@ -239,24 +257,24 @@ Partial Class frmTATofEmployees
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvTAT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvTAT.BackgroundColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvTAT.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvTAT.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvTAT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTAT.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HOSPITAL_NO, Me.PATIENT_NAME, Me.DEPT_NAME, Me.EMPLOYEE, Me.NOTIFY_DATE, Me.CLEAR_DATE, Me.DIFFERENCE, Me.REMARKS})
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvTAT.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvTAT.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvTAT.Location = New System.Drawing.Point(3, 3)
         Me.dgvTAT.MultiSelect = False
         Me.dgvTAT.Name = "dgvTAT"
@@ -267,6 +285,11 @@ Partial Class frmTATofEmployees
         '
         'Summary
         '
+        Me.Summary.Controls.Add(Me.btnRemove)
+        Me.Summary.Controls.Add(Me.GroupBox5)
+        Me.Summary.Controls.Add(Me.dgvTATSummary)
+        Me.Summary.Controls.Add(Me.cbGroup)
+        Me.Summary.Controls.Add(Me.Label4)
         Me.Summary.Location = New System.Drawing.Point(4, 25)
         Me.Summary.Name = "Summary"
         Me.Summary.Padding = New System.Windows.Forms.Padding(3)
@@ -274,6 +297,127 @@ Partial Class frmTATofEmployees
         Me.Summary.TabIndex = 1
         Me.Summary.Text = "Summary"
         Me.Summary.UseVisualStyleBackColor = True
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.rbHrs)
+        Me.GroupBox5.Controls.Add(Me.rbDays)
+        Me.GroupBox5.Location = New System.Drawing.Point(202, 1)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(178, 40)
+        Me.GroupBox5.TabIndex = 13
+        Me.GroupBox5.TabStop = False
+        '
+        'rbHrs
+        '
+        Me.rbHrs.AutoSize = True
+        Me.rbHrs.Location = New System.Drawing.Point(101, 13)
+        Me.rbHrs.Name = "rbHrs"
+        Me.rbHrs.Size = New System.Drawing.Size(64, 17)
+        Me.rbHrs.TabIndex = 1
+        Me.rbHrs.Text = "in Hours"
+        Me.rbHrs.UseVisualStyleBackColor = True
+        '
+        'rbDays
+        '
+        Me.rbDays.AutoSize = True
+        Me.rbDays.Checked = True
+        Me.rbDays.Location = New System.Drawing.Point(19, 13)
+        Me.rbDays.Name = "rbDays"
+        Me.rbDays.Size = New System.Drawing.Size(60, 17)
+        Me.rbDays.TabIndex = 0
+        Me.rbDays.TabStop = True
+        Me.rbDays.Text = "in Days"
+        Me.rbDays.UseVisualStyleBackColor = True
+        '
+        'dgvTATSummary
+        '
+        Me.dgvTATSummary.AllowUserToAddRows = False
+        Me.dgvTATSummary.AllowUserToDeleteRows = False
+        Me.dgvTATSummary.AllowUserToOrderColumns = True
+        Me.dgvTATSummary.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvTATSummary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvTATSummary.BackgroundColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvTATSummary.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvTATSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvTATSummary.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Column1, Me.Total, Me.AVG, Me.DH, Me.DH_COPY})
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvTATSummary.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvTATSummary.Location = New System.Drawing.Point(3, 47)
+        Me.dgvTATSummary.Name = "dgvTATSummary"
+        Me.dgvTATSummary.ReadOnly = True
+        Me.dgvTATSummary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvTATSummary.Size = New System.Drawing.Size(1301, 342)
+        Me.dgvTATSummary.TabIndex = 12
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "GROUP"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 71
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "COUNT OF PX"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 83
+        '
+        'Total
+        '
+        Me.Total.HeaderText = "Total TAT"
+        Me.Total.Name = "Total"
+        Me.Total.ReadOnly = True
+        Me.Total.Width = 74
+        '
+        'AVG
+        '
+        Me.AVG.HeaderText = "AVG TAT per Patient"
+        Me.AVG.Name = "AVG"
+        Me.AVG.ReadOnly = True
+        Me.AVG.Width = 91
+        '
+        'DH
+        '
+        Me.DH.HeaderText = "DH"
+        Me.DH.Name = "DH"
+        Me.DH.ReadOnly = True
+        Me.DH.Width = 48
+        '
+        'cbGroup
+        '
+        Me.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbGroup.FormattingEnabled = True
+        Me.cbGroup.Items.AddRange(New Object() {"SECTION", "EMPLOYEE"})
+        Me.cbGroup.Location = New System.Drawing.Point(67, 10)
+        Me.cbGroup.Name = "cbGroup"
+        Me.cbGroup.Size = New System.Drawing.Size(127, 21)
+        Me.cbGroup.TabIndex = 11
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(9, 13)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(50, 13)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "Group by"
         '
         'HOSPITAL_NO
         '
@@ -320,10 +464,10 @@ Partial Class frmTATofEmployees
         '
         'DIFFERENCE
         '
-        Me.DIFFERENCE.HeaderText = "DIFFERENCE (MINUTES)"
+        Me.DIFFERENCE.HeaderText = "DIFFERENCE"
         Me.DIFFERENCE.Name = "DIFFERENCE"
         Me.DIFFERENCE.ReadOnly = True
-        Me.DIFFERENCE.Width = 143
+        Me.DIFFERENCE.Width = 99
         '
         'REMARKS
         '
@@ -332,6 +476,25 @@ Partial Class frmTATofEmployees
         Me.REMARKS.Name = "REMARKS"
         Me.REMARKS.ReadOnly = True
         Me.REMARKS.Width = 85
+        '
+        'btnRemove
+        '
+        Me.btnRemove.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.btnRemove.BackgroundImage = Global.iHomisReports.My.Resources.Resources.delete
+        Me.btnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnRemove.Location = New System.Drawing.Point(386, 6)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(39, 35)
+        Me.btnRemove.TabIndex = 1
+        Me.btnRemove.UseVisualStyleBackColor = False
+        '
+        'DH_COPY
+        '
+        Me.DH_COPY.HeaderText = ""
+        Me.DH_COPY.Name = "DH_COPY"
+        Me.DH_COPY.ReadOnly = True
+        Me.DH_COPY.Visible = False
+        Me.DH_COPY.Width = 19
         '
         'frmTATofEmployees
         '
@@ -349,6 +512,7 @@ Partial Class frmTATofEmployees
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmTATofEmployees"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = " "
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -358,6 +522,11 @@ Partial Class frmTATofEmployees
         Me.tabTAT.ResumeLayout(False)
         Me.Detail.ResumeLayout(False)
         CType(Me.dgvTAT, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Summary.ResumeLayout(False)
+        Me.Summary.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        CType(Me.dgvTATSummary, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -380,6 +549,17 @@ Partial Class frmTATofEmployees
     Friend WithEvents Detail As System.Windows.Forms.TabPage
     Friend WithEvents dgvTAT As System.Windows.Forms.DataGridView
     Friend WithEvents Summary As System.Windows.Forms.TabPage
+    Friend WithEvents dgvTATSummary As System.Windows.Forms.DataGridView
+    Friend WithEvents cbGroup As System.Windows.Forms.ComboBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
+    Friend WithEvents rbHrs As System.Windows.Forms.RadioButton
+    Friend WithEvents rbDays As System.Windows.Forms.RadioButton
+    Friend WithEvents Total As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents AVG As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DH As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HOSPITAL_NO As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PATIENT_NAME As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DEPT_NAME As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -388,5 +568,7 @@ Partial Class frmTATofEmployees
     Friend WithEvents CLEAR_DATE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DIFFERENCE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents REMARKS As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnRemove As System.Windows.Forms.Button
+    Friend WithEvents DH_COPY As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

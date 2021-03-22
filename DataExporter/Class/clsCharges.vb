@@ -459,12 +459,12 @@
                                 "  COA_ITEM.COACODE <> @x"
             End If
 
-
             If cbFilter.Text <> "" Then
                 Cmd.CommandText = Cmd.CommandText & " and " &
                             cbFilter.Text & " like " &
                            "@search"
             End If
+
 
             If cbSearch.Text <> "" Then
                 Cmd.CommandText = Cmd.CommandText & " and " &
@@ -545,6 +545,7 @@
     Sub FillPharmaItemSummaryGrid(ByRef dgvItemSummary As DataGridView,
                                   ByVal DateFrom As Date,
                                   ByVal DateTo As Date,
+                                  ByRef cbSearch As ComboBox,
                                   ByRef cbFilter As ComboBox,
                                   ByRef txtSearch As TextBox,
                                   ByRef chkCons As CheckBox,
@@ -555,6 +556,7 @@
             Dim cntr As Integer = 0
             opencon()
             Cmd.Parameters.AddWithValue("@search", txtSearch.Text + "%")
+            Cmd.Parameters.AddWithValue("@searchby", "%" + cbSearch.Text + "%")
             Cmd.CommandText = "select " &
                               "  ITEM, " &
                               "  STRENGTH, " &
@@ -562,7 +564,7 @@
                               "from " &
                               "  VW_PHARMACY_CHARGES " &
                               "where " &
-                                "ISSUEDTE " &
+                                "DODATE " &
                               "between " &
                                 "'" & DateFrom & "'" &
                               " and " & _
@@ -593,6 +595,12 @@
                 Cmd.CommandText = Cmd.CommandText & " and " &
                              cbFilter.Text & " like " &
                              "@search"
+            End If
+
+            If cbSearch.Text <> "" Then
+                Cmd.CommandText = Cmd.CommandText & " and " &
+                                "ITEM like " &
+                                "@searchby"
             End If
 
             Cmd.CommandText = Cmd.CommandText &
